@@ -7,7 +7,8 @@
 
     <link rel="stylesheet" href="CSS Section/index.css">
     <link rel="stylesheet" href="CSS Section/header&footer.css">
- 
+    <script src="Java Section/index.js"></script>
+
     <script src="https://kit.fontawesome.com/6d248d535d.js" crossorigin="anonymous"></script>
 
 </head>
@@ -16,25 +17,26 @@
     <header>
         <nav>
             <ul>
-                <li><a href="Index.html" class="logo">ONE STORE</a></li>
+                <li><a href="Index.html" class="logo"><img src="CSS Section/Material/img/OneStore.png" alt=""></a></li>
                 <li><a href="Index.html" class="active" >Home</a></li>
                 <li><a href="#">Contact</a></li>
                 <li><a href="#">Follow Us</a></li>
             </ul>
         </nav>
     </header>
+    <!-- -------------------------------------------------------------------------- -->
     <div class="category">
         <ul>
             <li><a href="#prebuilt">Pre-Built</a></li>
             <li><a href="#cpu">CPU</a></li>
             <li><a href="#gpu">GPU</a></li>
             <li><a href="#motherboard">Motherboard</a></li>
-            <li><a href="#fan">Fan</a></li>
             <li><a href="#accessory">Accessory</a></li>
         </ul>
     </div>
     <!-- -------------------------------------------------------------------------- -->
     <div class="container">
+        <!-- PreBuilt Section -->
         <section id="prebuilt" class="product-section">
             <div class="section-header">
                 <h2>Pre-Built</h2>
@@ -106,22 +108,6 @@
             </div>
         </section>
     
-        <!-- Fan Section -->
-        <section id="fan" class="product-section">
-            <div class="section-header">
-                <h2>Cooler</h2>
-            </div>
-            <div class="product">
-                <div class="product1">
-                    <img src="CSS Section/Material/img/Ryzen.png" alt="">
-                    <h1>Intel Core i9-10900K</h1>
-                    <p>Price: $499.99</p>
-                    <a href="#">Add to Cart</a>
-                </div>
-                
-            </div>
-        </section>
-    
         <!-- Accessory Section -->
         <section id="accessory" class="product-section">
             <div class="section-header">
@@ -144,10 +130,10 @@
         <div class="footer_main">
             <div class="tag">
                 <h1>Contacts</h1>
-                <a href="#"><i class="fa-solid fa-house"></i> 500 Fake St.Beach View, Island Hawaii,<br> Western United States, USA.</a>
-                <a href="#"><i class="fa-solid fa-phone"></i> +855 069 420</a>
+                <a href="https://g.co/kgs/kGz98hj"><i class="fa-solid fa-house"></i>  No. 86A, Street 110,<br> Russian Federation Blvd (110), Phnom Penh</a>
+                <a href="#"><i class="fa-solid fa-phone"></i> 023 880 612</a>
                 <a href="#"><i class="fa-solid fa-envelope"></i> totallynotarealemail@gmail.com</a>
-              
+            
             </div>
             <div class="tag">
                 <h1>Information</h1>
@@ -174,26 +160,27 @@
                 </div>
             </div>
             <div class="instagram">
-                <h1>Members</h1>
+                <h1 id="members-title">Members</h1>
                 <div class="news">
-                    <a href="#" class="news1">
+                    <a href="#" class="news1" data-name="Uy Sophea">
                         <img src="CSS Section/Material/img/phea.jpg" alt="">
                     </a>
-                    <a href="#" class="news1">
+                    <a href="#" class="news1" data-name="Hang Rithy">
                         <img src="CSS Section/Material/img/rithy.jpg" alt="">
                     </a>
-                    <a href="#" class="news1">
+                    <a href="#" class="news1" data-name="Sim Hengtry">
                         <img src="CSS Section/Material/img/sim.jpg" alt="">
                     </a>
-                    <a href="#" class="news1">
+                    <a href="#" class="news1" data-name="You Muniraksmey">
                         <img src="CSS Section/Material/img/smey.jpg" alt="">
                     </a>
-                    <a href="#" class="news1">
+                    <a href="#" class="news1" data-name="Ol Mengeim">
                         <img src="CSS Section/Material/img/eim2.jpg" alt="">
                     </a>
                 </div>
                 <p>Check our posts</p>
             </div>
+            
         </div>
     </footer>
 </body>
