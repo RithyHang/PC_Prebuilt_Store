@@ -1,21 +1,4 @@
-<?php
-$db = new mysqli("localhost", "root", "", "pc_store_db");
-if ($db->connect_errno > 0) {
-    die(
-        "Error number: " . $db->connect_errno . "<br>" .
-        "Error message: " . $db->connect_error
-    );
-}
 
-$sql = "select id, name, image from brands";
-$result = $db->query($sql);
-if ($db->errno > 0) {
-    die(
-        "Error number: " . $db->errno . "<br>" .
-        "Error message: " . $db->error
-    );
-}
-?>
 
 
 <!DOCTYPE html>

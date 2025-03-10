@@ -1,10 +1,6 @@
 <?php
 if (isset($_POST["buttonSubmit"])) {
-    $fileNames = $_FILES["fileUploading"]["name"];
-    $sources = $_FILES["fileUploading"]["tmp_name"];
-    
 
-    echo $sources;
 }
 ?>
 
