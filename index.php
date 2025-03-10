@@ -182,6 +182,9 @@
                     <a href="#" class="news1" data-name="Ol Mengeim">
                         <img src="CSS Section/Material/img/eim2.jpg" alt="">
                     </a>
+                    <a href="#" class="news1" data-name="Sa Rosmy">
+                        <img src="CSS Section/Material/img/Rosmy.jpg" alt="">
+                    </a>
                 </div>
                 <p>Check our posts</p>
             </div>
