@@ -10,9 +10,7 @@
 body{
      background-color: #dfccaf;
 }
-
-
-/* <!-- -------------------------------------------------------------------------- --> */
+/* <!-- --------------------------------------------------- --> */
 .category{
      background-color: #885444;
      height: 5vh;
@@ -40,16 +38,18 @@ body{
      border-radius: 5px;
 
 }
-.category ul li:hover{
-     background-color: #6f4436;
-}
-.category ul li:hover a{ 
-     color: white;
-}
 .category ul li a{
      color: #010100;
      font-weight: 500;
      transition: 0.3s ease;
+}
+.category ul li.active{
+     animation: slide 0.3s ease-out;
+     background-color: #6f4436;
+}
+ 
+.category ul li.active a{
+     color: white;
 }
 /* <!-- ----------------------------------------- --> */
 html{
@@ -276,4 +276,3 @@ html{
      border-radius: 5px;
      transition: background-color 0.2s;
 }
-
