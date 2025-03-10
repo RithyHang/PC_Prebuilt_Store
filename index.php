@@ -1,3 +1,7 @@
+<?php
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,6 +25,7 @@
                 <li><a href="Index.html" class="active" >Home</a></li>
                 <li><a href="#">Contact</a></li>
                 <li><a href="#">Follow Us</a></li>
+                <li><a href="#">Account</a></li>
             </ul>
         </nav>
     </header>
