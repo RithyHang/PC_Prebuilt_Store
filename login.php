@@ -12,6 +12,10 @@
         $username = $_POST["txtUserName"];
         $password = $_POST["txtPassword"];
 
+        session_start();
+        $_SESSION["username"] = $username;
+        $_SESSION["password"] = $password;
+
 
         if(empty($username)){
             $usernameError = "Username is required";

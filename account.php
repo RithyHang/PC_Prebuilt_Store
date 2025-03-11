@@ -1,4 +1,8 @@
 <?php
+    session_start();
+    $username = $_SESSION["username"];
+    $password = $_SESSION["password"];
+
     $db = mysqli_connect("localhost","root",'',"pc_store_db");
     if($db->connect_errno > 0){
         die(
@@ -7,7 +11,10 @@
         );
     }
 
-    $sql = "SELECT username, role, email, date_of_birth, address from users";
+    $sql = "SELECT username, role, email, date_of_birth, address 
+            from users 
+            WHERE username = '$username'
+            AND password = '$password'";
     $result = $db->query($sql);
     if($db->connect_errno > 0){
         die(
