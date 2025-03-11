@@ -1,5 +1,5 @@
 <?php
-    $db = mysqli_connect("localhost","roott","","pc_store_db");
+    $db = mysqli_connect("localhost","root",'',"pc_store_db");
     if($db->connect_errno > 0){
         die(
             "Error number : " . $db->connect_errno . "<br>" .
@@ -7,7 +7,7 @@
         );
     }
 
-    $sql = "SELECT first_name, last_name, role, email, date_of_birth, addresss";
+    $sql = "SELECT username, role, email, date_of_birth, address from users";
     $result = $db->query($sql);
     if($db->connect_errno > 0){
         die(
@@ -28,8 +28,7 @@
 <body>
     <?php
         while($user = $result->fetch_assoc()):
-            echo $user["last_name"] . "<br>";
-            echo $user["first_name"] . "<br>";
+            echo $user["username"] . "<br>";
             echo $user["email"] . "<br>";
             echo $user["date_of_birth"] . "<br>";
         endwhile;
