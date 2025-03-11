@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Mar 10, 2025 at 09:59 PM
--- Server version: 5.7.19
--- PHP Version: 5.6.31
+-- Generation Time: Mar 11, 2025 at 10:12 AM
+-- Server version: 8.3.0
+-- PHP Version: 8.2.18
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -30,10 +29,10 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS `brands`;
 CREATE TABLE IF NOT EXISTS `brands` (
-  `id` smallint(6) NOT NULL AUTO_INCREMENT,
+  `id` smallint NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb3;
 
 --
 -- Dumping data for table `brands`
@@ -57,10 +56,10 @@ INSERT INTO `brands` (`id`, `name`) VALUES
 
 DROP TABLE IF EXISTS `categories`;
 CREATE TABLE IF NOT EXISTS `categories` (
-  `id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id` smallint UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb3;
 
 --
 -- Dumping data for table `categories`
@@ -85,16 +84,16 @@ INSERT INTO `categories` (`id`, `name`) VALUES
 
 DROP TABLE IF EXISTS `prebuilts`;
 CREATE TABLE IF NOT EXISTS `prebuilts` (
-  `id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `motherboard_id` smallint(6) NOT NULL,
-  `cpu_id` smallint(6) NOT NULL,
-  `psu_id` smallint(6) NOT NULL,
-  `ram_id` smallint(6) NOT NULL,
-  `storage_id` smallint(6) NOT NULL,
-  `gpu_id` smallint(6) NOT NULL,
-  `case_id` smallint(6) NOT NULL,
-  `cpu_cooler_id` smallint(6) NOT NULL,
-  `fan_id` smallint(6) NOT NULL,
+  `id` smallint UNSIGNED NOT NULL AUTO_INCREMENT,
+  `motherboard_id` smallint NOT NULL,
+  `cpu_id` smallint NOT NULL,
+  `psu_id` smallint NOT NULL,
+  `ram_id` smallint NOT NULL,
+  `storage_id` smallint NOT NULL,
+  `gpu_id` smallint NOT NULL,
+  `case_id` smallint NOT NULL,
+  `cpu_cooler_id` smallint NOT NULL,
+  `fan_id` smallint NOT NULL,
   `price` varchar(60) NOT NULL,
   `operating_sytem` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
@@ -107,7 +106,7 @@ CREATE TABLE IF NOT EXISTS `prebuilts` (
   KEY `prebuilts_cpu_id_foreign` (`cpu_id`),
   KEY `prebuilts_case_id_foreign` (`case_id`),
   KEY `prebuilts_psu_id_foreign` (`psu_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 
 -- --------------------------------------------------------
 
@@ -117,21 +116,21 @@ CREATE TABLE IF NOT EXISTS `prebuilts` (
 
 DROP TABLE IF EXISTS `products`;
 CREATE TABLE IF NOT EXISTS `products` (
-  `id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `category_id` smallint(6) NOT NULL,
-  `brand_id` smallint(6) NOT NULL,
+  `id` smallint UNSIGNED NOT NULL AUTO_INCREMENT,
+  `category_id` smallint NOT NULL,
+  `brand_id` smallint NOT NULL,
   `name` varchar(100) NOT NULL,
   `description` varchar(255) NOT NULL,
-  `price` int(11) NOT NULL,
-  `qty` smallint(6) NOT NULL,
+  `price` int NOT NULL,
+  `qty` smallint NOT NULL,
   `image` varchar(255) NOT NULL,
   `created_at` datetime NOT NULL,
-  `created_by` smallint(6) NOT NULL,
+  `created_by` smallint NOT NULL,
   PRIMARY KEY (`id`),
   KEY `products_category_id_foreign` (`category_id`),
   KEY `products_created_by_foreign` (`created_by`),
   KEY `products_brand_id_foreign` (`brand_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 
 -- --------------------------------------------------------
 
@@ -141,23 +140,22 @@ CREATE TABLE IF NOT EXISTS `products` (
 
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
-  `id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `last_name` varchar(20) NOT NULL,
-  `first_name` varchar(20) NOT NULL,
+  `id` smallint UNSIGNED NOT NULL AUTO_INCREMENT,
+  `username` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
   `role` tinyint(1) NOT NULL,
   `password` varchar(20) NOT NULL,
   `email` varchar(70) NOT NULL,
   `date_of_birth` date NOT NULL,
   `address` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `last_name`, `first_name`, `role`, `password`, `email`, `date_of_birth`, `address`) VALUES
-(1, 'rithy', 'hang', 1, '123', 'hangrithy@gmail.com', '2005-06-08', 'Phnom Penh');
+INSERT INTO `users` (`id`, `username`, `role`, `password`, `email`, `date_of_birth`, `address`) VALUES
+(1, 'rithy', 1, '123', 'hangrithy@gmail.com', '2005-06-08', 'Phnom Penh');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
