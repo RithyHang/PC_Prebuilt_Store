@@ -1,5 +1,12 @@
 <?php
+    session_start();
 
+    if(!empty($_SESSION["username"])){
+        $linkPath = "account.php";
+    }
+    else{
+        $linkPath = "login.php";
+    }
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +32,9 @@
                 <li><a href="Index.html" class="active" >Home</a></li>
                 <li><a href="#">Contact</a></li>
                 <li><a href="#">Follow Us</a></li>
-                <li><a href="login.php">Account</a></li>
+                <?php
+                echo "<li><a href='$linkPath'>Account</a></li>";
+                ?>
             </ul>
         </nav>
     </header>

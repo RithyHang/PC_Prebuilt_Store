@@ -78,7 +78,8 @@
         </div>
 
         <div class="signUp">
-            <p>don't have an account yet? <a href="#">Sign up here</a></p>
+            <p>don't have an account yet? <a href="register.php">Sign up here</a></p>
+            <p>or <a href="index.php">Continue as guest</a> </p>
         </div>
     </form>
 </body>
