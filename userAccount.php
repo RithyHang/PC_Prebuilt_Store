@@ -26,7 +26,7 @@ if ($db->connect_errno > 0) {
 
 if (isset($_POST["btnLogout"])) {
     session_destroy();
-    header("Location: login.php");
+    header("Location: userLogin.php");
 }
 ?>
 
@@ -41,6 +41,9 @@ if (isset($_POST["btnLogout"])) {
 </head>
 
 <body>
+    <div class="home">
+        <a href="index.php">Home</a>
+    </div>
     <?php
     while ($user = $result->fetch_assoc()):
         echo $user["username"] . "<br>";
@@ -52,6 +55,10 @@ if (isset($_POST["btnLogout"])) {
     <form action="" method="post">
         <input type="submit" value="Logout" name="btnLogout">
     </form>
+
+    <div class="delAccount">
+        <a href="userDelete.php">!Delete Account</a>
+    </div>
 </body>
 
 </html>

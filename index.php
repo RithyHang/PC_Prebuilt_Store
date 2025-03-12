@@ -2,10 +2,10 @@
     session_start();
 
     if(!empty($_SESSION["username"])){
-        $linkPath = "account.php";
+        $linkPath = "userAccount.php";
     }
     else{
-        $linkPath = "login.php";
+        $linkPath = "userLogin.php";
     }
 ?>
 

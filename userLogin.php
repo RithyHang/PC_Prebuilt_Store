@@ -46,7 +46,7 @@
             }
 
             if($result->num_rows > 0){
-                header("Location: account.php");
+                header("Location: userAccount.php");
             }else{
                 echo "Invalid username or password";
             }
