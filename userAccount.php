@@ -45,11 +45,10 @@ if (isset($_POST["btnLogout"])) {
         <a href="index.php">Home</a>
     </div>
     <?php
-    while ($user = $result->fetch_assoc()):
+    $user = $result->fetch_assoc();
         echo $user["username"] . "<br>";
         echo $user["email"] . "<br>";
         echo $user["date_of_birth"] . "<br>";
-    endwhile;
     ?>
 
     <form action="" method="post">
