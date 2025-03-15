@@ -23,87 +23,84 @@ if (isset($_POST["submit"])) {
     $date_of_birth = $_POST["txtDOB"];
     $address = $_POST["txtAddress"];
 
+    // connect to databas
+    $db = new mysqli("localhost", "root", "", "pc_store_db");
+
+    if ($db->connect_errno > 0) {
+        die(
+            "Error number: " . $db->connect_errno . "<br>" .
+            "Error message: " . $db->connect_error
+        );
+    }
+
+    //Username Error Check
+    {
+        if (empty($username)) {
+            $nameError = "username is required!";
+            $errors[] = $nameError;
+        } else {
+            if (strlen($username) == 1) {
+                $nameError = "username must be more than one character!";
+                $errors[] = $nameError;
+            } elseif (!preg_match("/^[a-zA-Z0-9 \.]+$/", $username)) {
+                $nameError = "Invalid username!";
+                $errors[] = $nameError;
+            }
+        }
+
+
+        //Password Error Check
+        if (empty($password)) {
+            $passwordError = "password is required!";
+            $errors[] = $passwordError;
+        } else {
+            if (strlen($password) < 8) {
+                $nameError = "password must be at lease 8 character!";
+                $errors[] = $passwordError;
+            } elseif (!preg_match("/(?=.{8,30})(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[^0-9a-zA-Z])(?!.*[\s])/", $password)) {
+                $nameError = "Invalid password!";
+                $errors[] = $nameError;
+            }
+        }
+
+
+        //Email Error Check
+        if (empty($email)) {
+            $emailError = "email is required!";
+            $errors[] = $emailError;
+        } elseif (!preg_match("/.+@.+\..{2,8}/", $email)) {
+            $emailError = "Invalid email address!";
+            $errors[] = $emailError;
+        }
+
+
+        //Date of Birth Error Check
+        if ($date_of_birth == "") {
+            $DoBError = "Date of birth is required.";
+            $errors[] = $DoBError;
+        } elseif (!preg_match("/^\d{4}-\d{2}-\d{2}$/", $date_of_birth)) {
+            $DoBError = "Invalid format(ex: yyyy-mm-dd).";
+            $errors[] = $DoBError;
+        }
+
+
+        //Address Error Check
+        if (empty($address)) {
+            $addressError = "address is required!";
+            $errors[] = $addressError;
+        } else {
+            if (strlen($address) == 1) {
+                $addressError = "address must be more than one character!";
+                $errors[] = $address;
+            } elseif (!preg_match("/^[a-zA-Z0-9 \.]+$/", $address)) {
+                $addressError = "Invalid address!";
+                $errors[] = $addressError;
+            }
+        }
+    }
+
 
     if (count($errors) === 0) {
-
-        // connect to databas
-        $db = new mysqli("localhost", "root", "", "pc_store_db");
-
-        if ($db->connect_errno > 0) {
-            die(
-                "Error number: " . $db->connect_errno . "<br>" .
-                "Error message: " . $db->connect_error
-            );
-        }
-
-        //Username Error Check
-        {
-            if (empty($username)) {
-                $nameError = "username is required!";
-                $errors[] = $nameError;
-            } else {
-                if (strlen($username) == 1) {
-                    $nameError = "username must be more than one character!";
-                    $errors[] = $nameError;
-                } elseif (!preg_match("/^[a-zA-Z0-9 \.]+$/", $username)) {
-                    $nameError = "Invalid username!";
-                    $errors[] = $nameError;
-                }
-            }
-
-
-            //Password Error Check
-            if (empty($password)) {
-                $passwordError = "password is required!";
-                $errors[] = $passwordError;
-            } else {
-                if (strlen($password) < 8) {
-                    $nameError = "password must be at lease 8 character!";
-                    $errors[] = $passwordError;
-                } elseif (!preg_match("/(?=.{8,30})(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[^0-9a-zA-Z])(?!.*[\s])/", $password)) {
-                    $nameError = "Invalid password!";
-                    $errors[] = $nameError;
-                }
-            }
-
-
-            //Email Error Check
-            if (empty($email)) {
-                $emailError = "email is required!";
-                $errors[] = $emailError;
-            } elseif (!preg_match("/.+@.+\..{2,8}/", $email)) {
-                $emailError = "Invalid email address!";
-                $errors[] = $emailError;
-            }
-
-
-            //Date of Birth Error Check
-            if ($date_of_birth == "") {
-                $DoBError = "Date of birth is required.";
-                $errors[] = $DoBError;
-            } elseif (!preg_match("/^\d{4}-\d{2}-\d{2}$/", $date_of_birth)) {
-                $DoBError = "Invalid format(ex: yyyy-mm-dd).";
-                $errors[] = $DoBError;
-            }
-
-
-            //Address Error Check
-            if (empty($address)) {
-                $addressError = "address is required!";
-                $errors[] = $addressError;
-            } else {
-                if (strlen($address) == 1) {
-                    $addressError = "address must be more than one character!";
-                    $errors[] = $address;
-                } elseif (!preg_match("/^[a-zA-Z0-9 \.]+$/", $address)) {
-                    $addressError = "Invalid address!";
-                    $errors[] = $addressError;
-                }
-            }
-        }
-
-
-
         // Instert Script
         $sql = "INSERT INTO users (username, userRole, password, email, date_of_birth, address) 
                 VALUES(?, ?, ?, ?, ?, ?)";

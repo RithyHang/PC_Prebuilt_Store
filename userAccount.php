@@ -1,4 +1,5 @@
 <?php
+$id;
 session_start();
 $username = $_SESSION["username"];
 $password = $_SESSION["password"];
@@ -46,17 +47,22 @@ if (isset($_POST["btnLogout"])) {
     </div>
     <?php
     $user = $result->fetch_assoc();
+        $id = $user["id"];
         echo $user["username"] . "<br>";
         echo $user["email"] . "<br>";
         echo $user["date_of_birth"] . "<br>";
+        echo $user["id"];
     ?>
 
     <form action="" method="post">
         <input type="submit" value="Logout" name="btnLogout">
     </form>
 
+    <?php
+        echo "<div class='customAccount'><a href='userUpdate.php?id=$id'>Customize your account</a></div>";
+    ?>
     <div class="delAccount">
-        <a href="userDelete.php">!Delete Account</a>
+        <a href="userDelete.php?">!Delete Account</a>
     </div>
 </body>
 
