@@ -16,7 +16,7 @@ $success = "";
 $errors = [];
 
 // Connect to DB
-$db = mysqli_connect("localhost", "root", '', "pc_store_db");
+$db = mysqli_connect("localhost", "root", '', "");
 if ($db->connect_errno > 0) {
     die(
         "Error number : " . $db->connect_errno . "<br>" .
