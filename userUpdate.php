@@ -6,14 +6,14 @@ $date_of_birth = "";
 $address = "";
 
 
-$nameError = "";
-$passwordError = "";
-$emailError = "";
-$DoBError = "";
-$addressError = "";
+$nameError ;
+$passwordError;
+$emailError;
+$DoBError;
+$addressError;
 
 $success = "";
-$errors[] = "";
+$errors = [];
 
 // Connect to DB
 $db = mysqli_connect("localhost", "root", '', "pc_store_db");
@@ -75,11 +75,11 @@ if (isset($_POST["btnUpdate"])) {
         $errors[] = $passwordError;
     } else {
         if (strlen($password) < 8) {
-            $nameError = "password must be at lease 8 character!";
+            $passwordError = "password must be at lease 8 character!";
             $errors[] = $passwordError;
         } elseif (!preg_match("/(?=.{8,30})(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[^0-9a-zA-Z])(?!.*[\s])/", $password)) {
-            $nameError = "Invalid password!";
-            $errors[] = $nameError;
+            $passwordError = "Invalid password!";
+            $errors[] = $passwordError;
         }
     }
 
@@ -117,7 +117,6 @@ if (isset($_POST["btnUpdate"])) {
 
     // Save Update
     if (count($errors) === 0) {
-        $id = $_POST["txtId"];
         $updateSQL = "UPDATE USERS SET username = ?, password = ?, email = ?, date_of_birth = ?, address = ? WHERE id = ?";
 
         $stmt = $db->prepare($updateSQL);
@@ -182,9 +181,12 @@ if (isset($_POST["btnUpdate"])) {
         </div>
     </form>
 
+    <div class="back">
+        <a href="userAccount.php">Back</a>
+    </div>
     <!-- success message -->
     <?=
-        $success == "" ? null : "<div class='success'>$success</div>" . "<br> <div class = 'successLogin'> <a href='userLogin.php'>go to login</a></div>";
+        $success == "" ? null : "<div class='success'>$success</div>";
     ?>
     <!-- Error Messages -->
     <?php

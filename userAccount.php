@@ -47,11 +47,10 @@ if (isset($_POST["btnLogout"])) {
     </div>
     <?php
     $user = $result->fetch_assoc();
-        $id = $user["id"];
-        echo $user["username"] . "<br>";
-        echo $user["email"] . "<br>";
-        echo $user["date_of_birth"] . "<br>";
-        echo $user["id"];
+    $id = $user["id"];
+    echo $user["username"] . "<br>";
+    echo $user["email"] . "<br>";
+    echo $user["date_of_birth"] . "<br>";
     ?>
 
     <form action="" method="post">
@@ -59,7 +58,11 @@ if (isset($_POST["btnLogout"])) {
     </form>
 
     <?php
-        echo "<div class='customAccount'><a href='userUpdate.php?id=$id'>Customize your account</a></div>";
+    echo "<div class='customAccount'><a href='userUpdate.php?id=$id'>Customize your account</a></div>";
+    ?>
+
+    <?php
+    echo "<div class='customAccount'><a href='userDelete.php?id=$id'>Delete account</a></div>";
     ?>
     <div class="delAccount">
         <a href="userDelete.php?">!Delete Account</a>

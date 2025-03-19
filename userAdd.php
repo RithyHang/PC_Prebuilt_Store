@@ -55,11 +55,11 @@ if (isset($_POST["submit"])) {
             $errors[] = $passwordError;
         } else {
             if (strlen($password) < 8) {
-                $nameError = "password must be at lease 8 character!";
+                $passwordError = "password must be at lease 8 character!";
                 $errors[] = $passwordError;
             } elseif (!preg_match("/(?=.{8,30})(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[^0-9a-zA-Z])(?!.*[\s])/", $password)) {
-                $nameError = "Invalid password!";
-                $errors[] = $nameError;
+                $passwordError = "Invalid password!";
+                $errors[] = $passwordError;
             }
         }
 
