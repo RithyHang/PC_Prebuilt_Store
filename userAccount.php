@@ -25,7 +25,7 @@ if ($db->connect_errno > 0) {
 }
 
 
-if (isset($_POST["btnLogout"])) {
+if (isset($_POST["btnLogout"]) ) {
     session_destroy();
     header("Location: userLogin.php");
 }
@@ -51,6 +51,7 @@ if (isset($_POST["btnLogout"])) {
     echo $user["username"] . "<br>";
     echo $user["email"] . "<br>";
     echo $user["date_of_birth"] . "<br>";
+    $_SESSION["userRole"] = $user["userRole"];
     ?>
 
     <form action="" method="post">
@@ -59,14 +60,13 @@ if (isset($_POST["btnLogout"])) {
 
     <?php
     echo "<div class='customAccount'><a href='userUpdate.php?id=$id'>Customize your account</a></div>";
-    ?>
-
-    <?php
     echo "<div class='customAccount'><a href='userDelete.php?id=$id'>Delete account</a></div>";
+
+    $userRole = $_SESSION["userRole"];
+    if($userRole === "admin"){
+        echo "<div class='prductManage'><a href='pManage.php'>Manage Product</a></div>";
+    }
     ?>
-    <div class="delAccount">
-        <a href="userDelete.php?">!Delete Account</a>
-    </div>
 </body>
 
 </html>
