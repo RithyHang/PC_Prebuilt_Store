@@ -64,7 +64,7 @@ if (isset($_POST["btnLogout"]) ) {
 
     $userRole = $_SESSION["userRole"];
     if($userRole === "admin"){
-        echo "<div class='prductManage'><a href='pManage.php'>Manage Product</a></div>";
+        echo "<div class='prductManage'><a href='../PRODUCTS/pManage.php'>Manage Product</a></div>";
     }
     ?>
 </body>

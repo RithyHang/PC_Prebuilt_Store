@@ -2,9 +2,9 @@
 session_start();
 
 if (!empty($_SESSION["username"])) {
-    $linkPath = "userLogin.php";
+    $linkPath = "userAccount.php";
 } else {
-    $linkPath = "./PHP Section/USERS/userLogin.php";
+    $linkPath = "userLogin.php";
 }
 
 
