@@ -4,11 +4,7 @@ session_start();
 $username = $_SESSION["username"];
 $password = $_SESSION["password"];
 
-// $db888 = mysqli_connect("localhost:8888", "root", '', "pc_store_db");
-$dbLocal = mysqli_connect("localhost", "root", '', "pc_store_db");
-
-$db = $dbLocal;
-// $db = $db888;
+$db = mysqli_connect("localhost", "root", '', "pc_store_db");
 if ($db->connect_errno > 0) {
     die(
         "Error number : " . $db->connect_errno . "<br>" .
