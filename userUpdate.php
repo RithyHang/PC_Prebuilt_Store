@@ -16,7 +16,7 @@ $success = "";
 $errors = [];
 
 // Connect to DB
-$db = mysqli_connect("localhost", "root", '', "");
+$db = mysqli_connect("localhost", "root", '', "pc_store_db");
 if ($db->connect_errno > 0) {
     die(
         "Error number : " . $db->connect_errno . "<br>" .
@@ -30,8 +30,14 @@ if ($db->connect_errno > 0) {
     if (isset($_GET["id"])) {
         $id = $_GET["id"];
 
+  
         $sql = "SELECT * FROM users WHERE id=? LIMIT 1";
-        $stmt = $db->prepare($sql);
+        $stmt = $db->prepare($sql );
+
+        if (!$stmt) {  // Check if statement preparation failed
+            die("Error in SQL preparation: " . $db->error);
+        }
+
         $stmt->bind_param("i", $id);
         $stmt->execute();
         $resultSet = $stmt->get_result();

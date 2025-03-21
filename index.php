@@ -1,15 +1,10 @@
 <?php
 session_start();
-$_SESSION["userRole"] = "";
-$userRol = $_SESSION["userRole"];
 
 if (!empty($_SESSION["username"])) {
     $linkPath = "userAccount.php";
 } else {
     $linkPath = "userLogin.php";
-    if ($userRol = "admin") {
-        $linkEdit = "pAdd.php";
-    }
 }
 
 
