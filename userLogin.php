@@ -60,11 +60,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-
-    <link rel="stylesheet" href="css section/userLogin.css">
+    <link rel="stylesheet" href="CSS section/userLogin.css">
 </head>
 <body>
+
     <form action="" method="post">
+    <h1 class="form-title">Login</h1>
         <div class="name">
             <label for="txtUserName">Username</label>
             <input type="text" name="txtUserName" id="txtUserName">
@@ -74,14 +75,14 @@
             <label for="txtPassword">Password</label>
             <input type="text" name="txtPassword" id="txtPassword">
         </div>
-        
-        <div class="login">
-            <input type="submit" name='submit' value="Login">
-        </div>
 
+        <div class="login">
+            <input type="submit" name="submit" value="Login">
+        </div>
+        
         <div class="signUp">
-            <p>don't have an account yet? <a href="userAdd.php">Sign up here</a></p>
-            <p>or <a href="index.php">Continue as guest</a> </p>
+            <p>Don't have an account yet? <a href="userAdd.php">Sign up here</a></p>
+            <p>Or <a href="index.php">Continue as guest</a></p>
         </div>
     </form>
 </body>
