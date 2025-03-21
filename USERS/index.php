@@ -20,7 +20,7 @@ if (!empty($_SESSION["username"])) {
 
     <link rel="stylesheet" href="../CSS Section/index.css">
     <link rel="stylesheet" href="../CSS Section/header&footer.css">
-    <script src="Java Section/index.js"></script>
+    <script src="../Java Section/index.js"></script>
 
     <script src="https://kit.fontawesome.com/6d248d535d.js" crossorigin="anonymous"></script>
 
@@ -31,10 +31,10 @@ if (!empty($_SESSION["username"])) {
     <header>
         <nav>
             <ul>
-                <li><a href="Index.html" class="logo"><img src="CSS Section/Material/img/OneStore.png" alt=""></a></li>
-                <li><a href="Index.html" class="active">Home</a></li>
-                <li><a href="#">Contact</a></li>
-                <li><a href="#">Follow Us</a></li>
+                <li><a href="Index.php" class="logo"><img src="../CSS Section/Material/img/OneStore.png" alt=""></a></li>
+                <li><a href="Index.php" class="active">Home</a></li>
+                <li><a href="#footer">Contact</a></li>
+                <li><a href="#footer">Follow Us</a></li>
                 <?php
                 echo "<li><a href='$linkPath'>Account</a></li>";
                 ?>
@@ -60,7 +60,7 @@ if (!empty($_SESSION["username"])) {
             </div>
             <div class="productbig">
                 <div class="product2">
-                    <img src="CSS Section/Material/img/Ryzen.png" alt="Pre-Built PC Image">
+                    <img src="../CSS Section/Material/img/Ryzen.png" alt="Pre-Built PC Image">
                     <div class="details">
                         <h1>Pre-Built Gaming PC 1</h1>
                         <p><strong>CPU:</strong> Intel Core i9-10900K</p>
@@ -84,7 +84,7 @@ if (!empty($_SESSION["username"])) {
             </div>
             <div class="product">
                 <div class="product1">
-                    <img src="CSS Section/Material/img/Ryzen.png" alt="">
+                    <img src="../CSS Section/Material/img/Ryzen.png" alt="">
                     <h1>Intel Core i9-10900K</h1>
                     <p>Price: $499.99</p>
                     <a href="#">Add to Cart</a>
@@ -100,7 +100,7 @@ if (!empty($_SESSION["username"])) {
             </div>
             <div class="product">
                 <div class="product1">
-                    <img src="CSS Section/Material/img/Ryzen.png" alt="">
+                    <img src="../CSS Section/Material/img/Ryzen.png" alt="">
                     <h1>Intel Core i9-10900K</h1>
                     <p>Price: $499.99</p>
                     <a href="#">Add to Cart</a>
@@ -116,7 +116,7 @@ if (!empty($_SESSION["username"])) {
             </div>
             <div class="product">
                 <div class="product1">
-                    <img src="CSS Section/Material/img/Ryzen.png" alt="">
+                    <img src="../CSS Section/Material/img/Ryzen.png" alt="">
                     <h1>Intel Core i9-10900K</h1>
                     <p>Price: $499.99</p>
                     <a href="#">Add to Cart</a>
@@ -132,7 +132,7 @@ if (!empty($_SESSION["username"])) {
             </div>
             <div class="product">
                 <div class="product1">
-                    <img src="CSS Section/Material/img/Ryzen.png" alt="">
+                    <img src="../CSS Section/Material/img/Ryzen.png" alt="">
                     <h1>Intel Core i9-10900K</h1>
                     <p>Price: $499.99</p>
                     <a href="#">Add to Cart</a>
@@ -144,7 +144,7 @@ if (!empty($_SESSION["username"])) {
 
     <!-- -------------------------------------------------------------------------- -->
     <footer>
-        <div class="footer_main">
+        <div class="footer_main" id="footer">
             <div class="tag">
                 <h1>Contacts</h1>
                 <a href="https://g.co/kgs/kGz98hj"><i class="fa-solid fa-house"></i> No. 86A, Street 110,<br> Russian
@@ -181,22 +181,22 @@ if (!empty($_SESSION["username"])) {
                 <h1 id="members-title">Members</h1>
                 <div class="news">
                     <a href="#" class="news1" data-name="Uy Sophea">
-                        <img src="CSS Section/Material/img/phea.jpg" alt="">
+                        <img src="../CSS Section/Material/img/phea.jpg" alt="">
                     </a>
                     <a href="#" class="news1" data-name="Hang Rithy">
-                        <img src="CSS Section/Material/img/rithy.jpg" alt="">
+                        <img src="../CSS Section/Material/img/rithy.jpg" alt="">
                     </a>
                     <a href="#" class="news1" data-name="Sim Hengtry">
-                        <img src="CSS Section/Material/img/sim.jpg" alt="">
+                        <img src="../CSS Section/Material/img/sim.jpg" alt="">
                     </a>
                     <a href="#" class="news1" data-name="You Muniraksmey">
-                        <img src="CSS Section/Material/img/smey.jpg" alt="">
+                        <img src="../CSS Section/Material/img/smey.jpg" alt="">
                     </a>
                     <a href="#" class="news1" data-name="Ol Mengeim">
-                        <img src="CSS Section/Material/img/eim2.jpg" alt="">
+                        <img src="../CSS Section/Material/img/eim2.jpg" alt="">
                     </a>
                     <a href="#" class="news1" data-name="Sa Rosmy">
-                        <img src="CSS Section/Material/img/Rosmy.jpg" alt="">
+                        <img src="../CSS Section/Material/img/Rosmy.jpg" alt="">
                     </a>
                 </div>
                 <p>Check our posts</p>
