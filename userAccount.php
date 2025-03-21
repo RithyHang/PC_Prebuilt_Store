@@ -51,6 +51,7 @@ if (isset($_POST["btnLogout"])) {
     echo $user["username"] . "<br>";
     echo $user["email"] . "<br>";
     echo $user["date_of_birth"] . "<br>";
+    $_SESSION["userRole"] = $user["userRole"];
     ?>
 
     <form action="" method="post">

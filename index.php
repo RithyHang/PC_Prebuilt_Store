@@ -1,16 +1,23 @@
 <?php
-    session_start();
+session_start();
+$_SESSION["userRole"] = "";
+$userRol = $_SESSION["userRole"];
 
-    if(!empty($_SESSION["username"])){
-        $linkPath = "userAccount.php";
+if (!empty($_SESSION["username"])) {
+    $linkPath = "userAccount.php";
+} else {
+    $linkPath = "userLogin.php";
+    if ($userRol = "admin") {
+        $linkEdit = "pAdd.php";
     }
-    else{
-        $linkPath = "userLogin.php";
-    }
+}
+
+
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,13 +30,14 @@
     <script src="https://kit.fontawesome.com/6d248d535d.js" crossorigin="anonymous"></script>
 
 </head>
-<body>  
+
+<body>
     <!-- -------------------------------------------------------------------------- -->
     <header>
         <nav>
             <ul>
                 <li><a href="Index.html" class="logo"><img src="CSS Section/Material/img/OneStore.png" alt=""></a></li>
-                <li><a href="Index.html" class="active" >Home</a></li>
+                <li><a href="Index.html" class="active">Home</a></li>
                 <li><a href="#">Contact</a></li>
                 <li><a href="#">Follow Us</a></li>
                 <?php
@@ -69,11 +77,11 @@
                         <a href="#">Add to Cart</a>
                     </div>
                 </div>
-                
+
             </div>
         </section>
-        
-    
+
+
         <!-- CPU Section -->
         <section id="cpu" class="product-section">
             <div class="section-header">
@@ -86,10 +94,10 @@
                     <p>Price: $499.99</p>
                     <a href="#">Add to Cart</a>
                 </div>
-                
+
             </div>
         </section>
-    
+
         <!-- GPU Section -->
         <section id="gpu" class="product-section">
             <div class="section-header">
@@ -102,10 +110,10 @@
                     <p>Price: $499.99</p>
                     <a href="#">Add to Cart</a>
                 </div>
-                
+
             </div>
         </section>
-    
+
         <!-- Motherboard Section -->
         <section id="motherboard" class="product-section">
             <div class="section-header">
@@ -118,10 +126,10 @@
                     <p>Price: $499.99</p>
                     <a href="#">Add to Cart</a>
                 </div>
-                
+
             </div>
         </section>
-    
+
         <!-- Accessory Section -->
         <section id="accessory" class="product-section">
             <div class="section-header">
@@ -134,27 +142,33 @@
                     <p>Price: $499.99</p>
                     <a href="#">Add to Cart</a>
                 </div>
-                
+
             </div>
         </section>
     </div>
-    
+
     <!-- -------------------------------------------------------------------------- -->
     <footer>
         <div class="footer_main">
             <div class="tag">
                 <h1>Contacts</h1>
-                <a href="https://g.co/kgs/kGz98hj"><i class="fa-solid fa-house"></i>  No. 86A, Street 110,<br> Russian Federation Blvd (110), Phnom Penh</a>
+                <a href="https://g.co/kgs/kGz98hj"><i class="fa-solid fa-house"></i> No. 86A, Street 110,<br> Russian
+                    Federation Blvd (110), Phnom Penh</a>
                 <a href="#"><i class="fa-solid fa-phone"></i> 023 880 612</a>
                 <a href="#"><i class="fa-solid fa-envelope"></i> totallynotarealemail@gmail.com</a>
-            
+
             </div>
             <div class="tag">
                 <h1>Information</h1>
                 <a href="#">About</a>
                 <a href="#">Blog</a>
                 <a href="#">Contact</a>
-                <a href="#">Helps & Support</a>                
+                <a href="#">Helps & Support</a>
+                <?php
+                echo $_SESSION["userRole"];
+                echo "<li><a href='$linkEdit'>Product Management</a></li>";
+
+                ?>
             </div>
             <div class="follow">
                 <h1>Follow Us</h1>
@@ -197,8 +211,9 @@
                 </div>
                 <p>Check our posts</p>
             </div>
-            
+
         </div>
     </footer>
 </body>
+
 </html>
