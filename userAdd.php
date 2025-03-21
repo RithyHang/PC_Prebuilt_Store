@@ -136,22 +136,23 @@ if (isset($_POST["submit"])) {
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register User</title>
+
+    <link rel="stylesheet" href="CSS section/userAdd.css">
 </head>
 
 <body>
+    
     <form action="" method="post">
-
+    <h1 class="form-title">Register User</h1>
         <!-- Name Field -->
         <div class="name">
             <label for="txtUserName">Username</label>
             <input type="text" name="txtUserName" id="txtUserName">
         </div>
-
 
         <!-- Password Field -->
         <div class="password">
@@ -159,13 +160,11 @@ if (isset($_POST["submit"])) {
             <input type="text" name="txtPassword" id="txtPassword">
         </div>
 
-
         <!-- Email Field -->
         <div class="email">
             <label for="txtEmail">Email</label>
             <input type="text" name="txtEmail" id="txtEmail">
         </div>
-
 
         <!-- Date of Birth Field -->
         <div class="dob">
@@ -173,30 +172,25 @@ if (isset($_POST["submit"])) {
             <input type="text" name="txtDOB" id="txtDOB">
         </div>
 
-
         <!-- Address Field -->
         <div class="address">
             <label for="txtAddress">Address</label>
             <input type="text" name="txtAddress" id="txtAddress">
         </div>
 
-
-        <!-- Submit button -->
+        <!-- Submit Button -->
         <div class="submitRegister">
             <input type="submit" value="Sign Up" name="submit">
         </div>
 
+        <!-- Success Message -->
+        <?= $success == "" ? null : "<div class='success'>$success</div><br> <div class='successLogin'><a href='userLogin.php'>go to login</a></div>"; ?>
 
-        <!-- success message -->
-        <?=
-            $success == "" ? null : "<div class='success'>$success</div>" . "<br> <div class = 'successLogin'> <a href='userLogin.php'>go to login</a></div>";
-        ?>
         <!-- Error Messages -->
-        <?php
-        foreach ($errors as $error) {
+        <?php foreach ($errors as $error) {
             echo "<div class='error'>$error</div>";
-        }
-        ?>
+        } ?>
+
     </form>
 </body>
 
