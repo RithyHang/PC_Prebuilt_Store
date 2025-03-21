@@ -2,9 +2,9 @@
 session_start();
 
 if (!empty($_SESSION["username"])) {
-    $linkPath = "userAccount.php";
-} else {
     $linkPath = "userLogin.php";
+} else {
+    $linkPath = "./PHP Section/USERS/userLogin.php";
 }
 
 
@@ -18,8 +18,8 @@ if (!empty($_SESSION["username"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <link rel="stylesheet" href="CSS Section/index.css">
-    <link rel="stylesheet" href="CSS Section/header&footer.css">
+    <link rel="stylesheet" href="../CSS Section/index.css">
+    <link rel="stylesheet" href="../CSS Section/header&footer.css">
     <script src="Java Section/index.js"></script>
 
     <script src="https://kit.fontawesome.com/6d248d535d.js" crossorigin="anonymous"></script>
@@ -159,11 +159,6 @@ if (!empty($_SESSION["username"])) {
                 <a href="#">Blog</a>
                 <a href="#">Contact</a>
                 <a href="#">Helps & Support</a>
-                <?php
-                echo $_SESSION["userRole"];
-                echo "<li><a href='$linkEdit'>Product Management</a></li>";
-
-                ?>
             </div>
             <div class="follow">
                 <h1>Follow Us</h1>
