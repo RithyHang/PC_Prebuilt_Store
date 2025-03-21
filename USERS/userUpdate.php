@@ -146,10 +146,13 @@ if (isset($_POST["btnUpdate"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Customize Account</title>
+
+    <link rel="stylesheet" href="../CSS Section/userUpdate.css">
 </head>
 
 <body>
     <form action="" method="post">
+    <h1 class="form-title">Update Account</h1>
         <!-- Name Field -->
         <div class="name">
             <label for="txtName">Name</label>
@@ -180,16 +183,19 @@ if (isset($_POST["btnUpdate"])) {
             <input type="password" name="txtPassword" id="txtPassword" value="<?= $password ?>">
         </div>
 
+        <div class="back">
+            <a href="userAccount.php">Back</a>
+        </div>
+
         <!-- Submit Button -->
         <div class="updateButton">
             <input type="submit" name="btnUpdate" id="btnUpdate" value="Save">
             <input type="reset" name="btnReset" id="btnReset">
         </div>
+        
     </form>
 
-    <div class="back">
-        <a href="userAccount.php">Back</a>
-    </div>
+    
     <!-- success message -->
     <?=
         $success == "" ? null : "<div class='success'>$success</div>";

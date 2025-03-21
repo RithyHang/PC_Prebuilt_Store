@@ -1,0 +1,89 @@
+body {
+     font-family: Arial, sans-serif;
+     margin: 0;
+     padding: 0;
+     background-color: #dfccaf;
+     color: #3c2f2f;
+}
+
+nav.home {
+     position: absolute;
+     top: 10px;
+     left: 10px;
+}
+
+nav.home a {
+     background-color: #854442;
+     color: #ffffff;
+     text-decoration: none;
+     font-weight: bold;
+     font-size: 18px;
+     padding: 5px 10px;
+     border-radius: 5px;
+}
+
+nav.home a:hover {
+     text-decoration: underline;
+}
+
+section.profile {
+     position: relative;
+     background-color: #ffffff;
+     margin: 20px auto;
+     padding: 20px;
+     border-radius: 8px;
+     width: 50%;
+     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+     text-align: center;
+}
+
+section.profile h1 {
+     font-size: 24px;
+     color: #6f4436;
+}
+
+section.profile p {
+     font-size: 16px;
+     margin: 5px 0;
+     color: #3c2f2f;
+}
+
+form.logout-form {
+     text-align: center;
+     margin: 20px 0;
+}
+
+form.logout-form input[type="submit"] {
+     background-color: #854442;
+     color: #ffffff;
+     border: none;
+     padding: 10px 20px;
+     border-radius: 5px;
+     cursor: pointer;
+     font-size: 16px;
+}
+
+form.logout-form input[type="submit"]:hover {
+     background-color: #6f4436;
+}
+
+section.account-actions {
+     text-align: center;
+     margin: 20px 0;
+}
+
+section.account-actions .action-link {
+     display: inline-block;
+     margin: 10px;
+     padding: 10px 20px;
+     background-color: #be9b7b;
+     color: #ffffff;
+     text-decoration: none;
+     border-radius: 5px;
+     font-size: 16px;
+     transition: background-color 0.3s ease;
+}
+
+section.account-actions .action-link:hover {
+     background-color: #6f4436;
+}

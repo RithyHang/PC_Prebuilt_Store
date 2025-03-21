@@ -39,34 +39,41 @@ if (isset($_POST["btnLogout"]) ) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Account</title>
+    <link rel="stylesheet" href="../CSS Section/userAccount.css">
 </head>
 
 <body>
-    <div class="home">
-        <a href="index.php">Home</a>
-    </div>
-    <?php
-    $user = $result->fetch_assoc();
-    $id = $user["id"];
-    echo $user["username"] . "<br>";
-    echo $user["email"] . "<br>";
-    echo $user["date_of_birth"] . "<br>";
-    $_SESSION["userRole"] = $user["userRole"];
-    ?>
 
-    <form action="" method="post">
+    <section class="profile">
+        <nav class="home">
+            <a href="index.php">Home</a>
+        </nav>
+        <?php
+        $user = $result->fetch_assoc();
+        $id = $user["id"];
+        echo "<h1>" . $user["username"] . "</h1>";
+        echo "<p>Email: " . $user["email"] . "</p>";
+        echo "<p>Date of Birth: " . $user["date_of_birth"] . "</p>";
+        $_SESSION["userRole"] = $user["userRole"];
+        ?>
+        
+    </section>
+
+    <form action="" method="post" class="logout-form">
         <input type="submit" value="Logout" name="btnLogout">
     </form>
 
-    <?php
-    echo "<div class='customAccount'><a href='userUpdate.php?id=$id'>Customize your account</a></div>";
-    echo "<div class='customAccount'><a href='userDelete.php?id=$id'>Delete account</a></div>";
+    <section class="account-actions">
+        <?php
+        echo "<a class='action-link' href='userUpdate.php?id=$id'>Customize your account</a>";
+        echo "<a class='action-link' href='userDelete.php?id=$id'>Delete account</a>";
 
-    $userRole = $_SESSION["userRole"];
-    if($userRole === "admin"){
-        echo "<div class='prductManage'><a href='../PRODUCTS/pManage.php'>Manage Product</a></div>";
-    }
-    ?>
+        $userRole = $_SESSION["userRole"];
+        if ($userRole === "admin") {
+            echo "<a class='action-link' href='../PRODUCTS/pManage.php'>Manage Product</a>";
+        }
+        ?>
+    </section>
 </body>
 
 </html>
