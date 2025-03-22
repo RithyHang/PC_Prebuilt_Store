@@ -1,6 +1,7 @@
+/* General Page Styling */
 body {
     font-family: Arial, sans-serif;
-    background-color: #dfccaf;
+    background-color: #dfccaf; /* Light golden background */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -8,8 +9,9 @@ body {
     margin: 0;
 }
 
+/* Form Container */
 form {
-    background-color: #ffffff;
+    background-color: #ffffff; /* White background for simplicity */
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -17,120 +19,16 @@ form {
     max-width: 320px;
 }
 
+/* Form Title */
 .form-title {
     font-size: 24px;
-    font-weight: bold;/* General Page Styling */
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #dfccaf; /* Light golden background */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
-    }
-    
-    /* Form Container */
-    form {
-        background-color: #ffffff; /* White background for simplicity */
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        width: 100%;
-        max-width: 320px;
-    }
-    
-    /* Form Title */
-    .form-title {
-        font-size: 24px;
-        font-weight: bold;
-        text-align: center;
-        color: #333333; /* Neutral dark gray for title text */
-        margin-bottom: 20px;
-    }
-    
-    /* Form Fields */
-    form div {
-        margin-bottom: 15px;
-    }
-    
-    label {
-        display: block;
-        font-size: 14px;
-        margin-bottom: 5px;
-        color: #333333; /* Neutral dark gray for labels */
-    }
-    
-    input[type="text"] {
-        width: 100%;
-        padding: 10px;
-        font-size: 14px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
-        background-color: #ffffff; /* Keep input fields bright white */
-    }
-    
-    /* Submit Button */
-    input[type="submit"] {
-        width: 100%;
-        padding: 10px;
-        font-size: 16px;
-        color: #ffffff; /* White text */
-        background-color: #be9b7b; /* Subtle maroon for button */
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-    }
-    
-    input[type="submit"]:hover {
-        background-color: #6f4436; /* Darker maroon on hover */
-    }
-    
-    /* Additional Text (e.g., Sign Up links) */
-    .signUp p {
-        font-size: 12px;
-        text-align: center;
-        color: #666666; /* Gray for text */
-        margin-top: 10px;
-    }
-    
-    .signUp a {
-        color: #007BFF; /* Standard blue for links */
-        text-decoration: none;
-    }
-    
-    .signUp a:hover {
-        text-decoration: underline;
-    }
-    
-    /* Error Message */
-    .error {
-        font-size: 14px;
-        color: #dc3545; /* Bright red for errors */
-        text-align: center;
-        background-color: #f8d7da; /* Light red background */
-        padding: 10px;
-        border-radius: 4px;
-        margin-top: 10px;
-    }
-    
-    /* Success Message */
-    .success {
-        font-size: 14px;
-        color: #28a745; /* Bright green for success */
-        text-align: center;
-        background-color: #d4edda; /* Light green background */
-        padding: 10px;
-        border-radius: 4px;
-        margin-top: 10px;
-    }
+    font-weight: bold;
     text-align: center;
-    color: #333333;
+    color: #333333; /* Neutral dark gray for title text */
     margin-bottom: 20px;
 }
 
+/* Form Fields */
 form div {
     margin-bottom: 15px;
 }
@@ -139,7 +37,7 @@ label {
     display: block;
     font-size: 14px;
     margin-bottom: 5px;
-    color: #333333;
+    color: #333333; /* Neutral dark gray for labels */
 }
 
 input[type="text"] {
@@ -149,14 +47,16 @@ input[type="text"] {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+    background-color: #ffffff; /* Keep input fields bright white */
 }
 
+/* Submit Button */
 input[type="submit"] {
     width: 100%;
     padding: 10px;
     font-size: 16px;
-    color: #ffffff;
-    background-color: #be9b7b;
+    color: #ffffff; /* White text */
+    background-color: #be9b7b; /* Subtle maroon for button */
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -164,21 +64,41 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-    background-color: #6f4436;
+    background-color: #6f4436; /* Darker maroon on hover */
 }
 
+/* Additional Text (e.g., Sign Up links) */
 .signUp p {
     font-size: 12px;
     text-align: center;
-    color: #666666;
+    color: #666666; /* Gray for text */
     margin-top: 10px;
 }
 
 .signUp a {
-    color: #007BFF;
+    color: #007BFF; /* Standard blue for links */
     text-decoration: none;
 }
 
 .signUp a:hover {
     text-decoration: underline;
+}
+
+/* Error Message */
+.error {
+    font-size: 14px;
+    color: red; /* Bright red color for error messages */
+    margin-top: 5px;
+    display: block; /* Ensures the error message appears below the input field */
+}
+
+/* Success Message */
+.success {
+    font-size: 14px;
+    color: #28a745; /* Bright green for success */
+    text-align: center;
+    background-color: #d4edda; /* Light green background */
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 10px;
 }
