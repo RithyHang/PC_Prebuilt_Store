@@ -1,4 +1,4 @@
-header{
+header {
      background-color: #854442;
      height: 10vh;
      display: flex;
@@ -6,32 +6,42 @@ header{
      align-items: center;
      width: 100%;
 }
-nav{
+
+nav {
      width: 95%;
      left: 2%;
 }
-nav ul{
+
+nav ul {
      list-style: none;
      display: flex;
-     justify-content: flex-end;
      align-items: center;
+     padding: 0;
+     margin: 0;
 }
-nav li:first-child{
-     margin-right: auto;
+
+nav li:first-child {
+     margin-right: auto; 
 }
-nav a{
-     margin: 3rem;
+
+nav li {
+     margin: 0 1rem; 
+}
+
+nav a {
      font-size: 20px;
      color: white;
+     text-decoration: none;
 }
-header nav ul{
+
+header nav ul {
      margin: 0 20rem;
 }
-header nav ul li .logo img{
+header nav ul li .logo img {
      width: 200px;
-     /* height: 100px; */
      border-radius: 50%;
 }
+                                                                 
 /* <!-- ------------------------------------------ --> */
 footer{
      width: 100%;

@@ -36,7 +36,7 @@ if (!empty($_SESSION["username"])) {
                 <li><a href="#footer">Contact</a></li>
                 <li><a href="#footer">Follow Us</a></li>
                 <?php
-                echo "<li><a href='$linkPath'>Account</a></li>";
+                echo "<li class='account'><a href='$linkPath'>Account</a></li>";
                 ?>
             </ul>
         </nav>
