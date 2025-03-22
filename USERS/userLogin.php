@@ -4,9 +4,9 @@ $password = "";
 
 $usernameError = "";
 $passwordError = "";
+$loginError = ""; // New variable for invalid credentials
 
 $errors = [];
-
 
 if (isset($_POST["submit"])) {
     $username = $_POST["txtUserName"];
@@ -15,7 +15,6 @@ if (isset($_POST["submit"])) {
     session_start();
     $_SESSION["username"] = $username;
     $_SESSION["password"] = $password;
-
 
     if (empty($username)) {
         $usernameError = "Username is required";
@@ -28,9 +27,7 @@ if (isset($_POST["submit"])) {
     }
 
     if (count($errors) == 0) {
-
         $db = mysqli_connect("localhost", "root", '', "pc_store_db");
-
 
         if ($db->connect_errno > 0) {
             die(
@@ -41,6 +38,7 @@ if (isset($_POST["submit"])) {
 
         $sql = "SELECT * from users where username = '$username' and password = '$password'";
         $result = $db->query($sql);
+
         if ($db->connect_errno > 0) {
             die(
                 "Error number : " . $db->connect_errno . "<br>" .
@@ -51,10 +49,11 @@ if (isset($_POST["submit"])) {
         if ($result->num_rows > 0) {
             header("Location: userAccount.php");
         } else {
-            echo "Invalid username or password";
+            $loginError = "Invalid username or password"; // Assign the error message
         }
     }
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -71,14 +70,21 @@ if (isset($_POST["submit"])) {
 
     <form action="" method="post">
         <h1 class="form-title">Login</h1>
+        <!-- Centralized error message -->
+        <?php if (!empty($loginError)): ?>
+        <div class="error center"><?php echo $loginError; ?></div>
+        <?php endif; ?>
+
         <div class="name">
             <label for="txtUserName">Username</label>
-            <input type="text" name="txtUserName" id="txtUserName">
+            <input type="text" name="txtUserName" id="txtUserName" value="<?php echo htmlspecialchars($username); ?>">
+            <span class="error"><?php echo $usernameError; ?></span>
         </div>
 
         <div class="password">
             <label for="txtPassword">Password</label>
-            <input type="text" name="txtPassword" id="txtPassword">
+            <input type="text" name="txtPassword" id="txtPassword" value="<?php echo htmlspecialchars($password); ?>">
+            <span class="error"><?php echo $passwordError; ?></span>
         </div>
 
         <div class="login">
