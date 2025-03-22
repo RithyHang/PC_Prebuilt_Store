@@ -1,7 +1,7 @@
 /* General Page Styling */
 body {
     font-family: Arial, sans-serif;
-    background-color: #dfccaf; /* Light golden background */
+    background-color: #dfccaf;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,7 +11,7 @@ body {
 
 /* Form Container */
 form {
-    background-color: #ffffff; /* White background for simplicity */
+    background-color: #ffffff;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -24,7 +24,7 @@ form {
     font-size: 24px;
     font-weight: bold;
     text-align: center;
-    color: #333333; /* Neutral dark gray for title text */
+    color: #333333;
     margin-bottom: 20px;
 }
 
@@ -37,7 +37,7 @@ label {
     display: block;
     font-size: 14px;
     margin-bottom: 5px;
-    color: #333333; /* Neutral dark gray for labels */
+    color: #333333;
 }
 
 input[type="text"] {
@@ -47,7 +47,7 @@ input[type="text"] {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
-    background-color: #ffffff; /* Keep input fields bright white */
+    background-color: #ffffff;
 }
 
 /* Submit Button */
@@ -55,8 +55,8 @@ input[type="submit"] {
     width: 100%;
     padding: 10px;
     font-size: 16px;
-    color: #ffffff; /* White text */
-    background-color: #be9b7b; /* Subtle maroon for button */
+    color: #ffffff;
+    background-color: #be9b7b;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -64,19 +64,19 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-    background-color: #6f4436; /* Darker maroon on hover */
+    background-color: #6f4436;
 }
 
-/* Additional Text (e.g., Sign Up links) */
+/* Additional Text */
 .signUp p {
     font-size: 12px;
     text-align: center;
-    color: #666666; /* Gray for text */
+    color: #666666;
     margin-top: 10px;
 }
 
 .signUp a {
-    color: #007BFF; /* Standard blue for links */
+    color: #007BFF;
     text-decoration: none;
 }
 
@@ -87,17 +87,17 @@ input[type="submit"]:hover {
 /* Error Message */
 .error {
     font-size: 14px;
-    color: red; /* Bright red color for error messages */
+    color: red;
     margin-top: 5px;
-    display: block; /* Ensures the error message appears below the input field */
+    display: block;
 }
 
 /* Success Message */
 .success {
     font-size: 14px;
-    color: #28a745; /* Bright green for success */
+    color: #28a745;
     text-align: center;
-    background-color: #d4edda; /* Light green background */
+    background-color: #d4edda;
     padding: 10px;
     border-radius: 4px;
     margin-top: 10px;
