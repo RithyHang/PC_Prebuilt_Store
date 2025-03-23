@@ -32,7 +32,7 @@ if (isset($_POST["submit"])) {
     }
 
     // Retrieve submitted form data
-    $category = $_POST["selectedCategory"]; // Updated to match the hidden input
+    $category = $_POST["selectedCategory"]; 
     $name = $_POST["txtProductName"];
     $description = $_POST["txtDescription"];
     $price = $_POST["txtPrice"];
@@ -55,7 +55,7 @@ if (isset($_POST["submit"])) {
     if (!empty($fileName)) {
         if (in_array($fileActualExt, $allowed)) {
             if ($fileError === 0) {
-                if ($fileSize <= 2000000) { // 2MB limit
+                if ($fileSize <= 2000000) { 
                     $fileNameNew = uniqid('', true) . "." . $fileActualExt;
                     $fileDestination = 'images/' . $fileNameNew;
                 } else {
@@ -145,9 +145,10 @@ if (isset($_POST["submit"])) {
         }
 
         $stmt->bind_param("sssdis", $category, $name, $description, $price, $qty, $image);
-        move_uploaded_file($fileTmpName, $fileDestination);
+        
 
         if ($stmt->execute()) {
+            move_uploaded_file($fileTmpName, $fileDestination);
             $success = "Product added successfully!";
         } else {
             $success = "Error adding product!";
@@ -184,45 +185,45 @@ if (isset($_POST["submit"])) {
                 <div class="category-option" data-value="Storage">Storage</div>
                 <div class="category-option" data-value="PSU">PSU</div>
             </div>
-            <!-- Hidden input to store the selected category -->
+
             <input type="hidden" name="selectedCategory" id="selectedCategory" value="CPU">
         </div>
-
-        
 
         <div class="ProductName">
             <label for="txtProductName">Product Name</label>
             <input type="text" name="txtProductName" id="txtProductName">
-            <span class="error"><?php echo $nameError; ?></span>
         </div>
 
 
         <div class="description">
             <label for="txtDescription">Description</label>
             <input type="text" name="txtDescription" id="txtDescription">
-            <span class="error"><?php echo $descriptionError; ?></span>
         </div>
 
         <div class="price">
             <label for="txtPrice">Price</label>
             <input type="text" name="txtPrice" id="txtPrice">
-            <span class="error"><?php echo $priceError; ?></span>
         </div>
 
 
         <div class="quantity">
             <label for="txtQuantity">Quantity</label>
             <input type="text" name="txtQuantity" id="txtQuantity">
-            <span class="error"><?php echo $qtyError; ?></span>
         </div>
 
 
         <div class="image">
             <label for="fImage">Image</label>
             <input type="file" name="fImage" id="fImage">
-            <span class="error"><?php echo $imageError; ?></span>
         </div>
 
+        <div class="message">
+            <?php if (!empty($success)) { ?>
+                <p class="success-message"><?php echo $success; ?></p>
+            <?php } elseif (!empty($errors)) { ?>
+                <p class="error-message"><?php echo implode('<br>', $errors); ?></p>
+            <?php } ?>
+        </div>
         <div class="button-row">
             <a href="pManage.php" class="back-btn">Back</a>
             <input type="submit" name="submit" id="submit" value="ADD" class="submit-btn">
