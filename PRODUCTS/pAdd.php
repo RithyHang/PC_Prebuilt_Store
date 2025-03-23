@@ -1,21 +1,47 @@
+<?php
+$category = "";
+$pName = "";
+$description = "";
+$price = "";
+$qty = "";
+if (isset($_POST["submit"])) {
+
+
+
+    // connect to databas
+    $db = mysqli_connect("localhost", "root", '', "pc_store_db");
+
+    if ($db->connect_errno > 0) {
+        die(
+            "Error number: " . $db->connect_errno . "<br>" .
+            "Error message: " . $db->connect_error
+        );
+    }
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Product</title>
 </head>
+
 <body>
     <form action="" method="post">
         <div class="categoryId">
             <label for="txtCateogryId">Category</label>
-            <input type="text" name="txtCategoryId" id="txtCategoryId">
-        </div>
-
-
-        <div class="brandId">
-            <label for="txtBrandId">Brand</label>
-            <input type="text" name="txtBrandId" id="txtBrandId">
+            <input type="radio" name="rdCategory" id="rdCategory" value="CPU"> CPU &nbsp; &nbsp;
+            <input type="radio" name="rdCategory" id="rdCategory" value="GPU"> GPU &nbsp; &nbsp;
+            <input type="radio" name="rdCategory" id="rdCategory" value="Motherboard"> Motherboard &nbsp; &nbsp;
+            <input type="radio" name="rdCategory" id="rdCategory" value="RAM"> RAM &nbsp; &nbsp;
+            <input type="radio" name="rdCategory" id="rdCategory" value="Cooler"> Cooler &nbsp; &nbsp;
+            <input type="radio" name="rdCategory" id="rdCategory" value="Case"> PC Case &nbsp; &nbsp;
+            <input type="radio" name="rdCategory" id="rdCategory" value="Storage"> Storage &nbsp; &nbsp;
+            <input type="radio" name="rdCategory" id="rdCategory" value="PSU"> PSU &nbsp; &nbsp;
         </div>
 
 
@@ -47,6 +73,13 @@
             <label for="txtImage">Image</label>
             <input type="text" name="txtImage" id="txtImage">
         </div>
+
+
+        <div class="pSubmit">
+            <input type="submit" name="submit" id="submit" value="sub">
+        </div>
     </form>
+    <a href="../USERS/index.php">Home</a>
 </body>
+
 </html>
