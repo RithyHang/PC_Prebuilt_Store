@@ -46,7 +46,7 @@ if ($db->errno > 0) {
     <div class="container">
         <?php
         // Define the desired category order
-        $desiredCategories = ['CPU', 'GPU', 'Motherboard', 'RAM', 'Cooler', 'PC Case', 'Storage', 'PSU'];
+        $desiredCategories = ['CPU', 'GPU', 'Motherboard', 'RAM', 'Cooler', 'Case', 'Storage', 'PSU'];
 
         foreach ($desiredCategories as $category) {
             // Fetch products for the current category
