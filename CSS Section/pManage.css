@@ -1,0 +1,119 @@
+body {
+     font-family: Arial, sans-serif;
+     margin: 0;
+     padding: 0;
+     background-color: #dfccaf;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     /* justify-content: center; */
+     height: 100vh;
+     color: #3c2f2f;
+}
+
+h1{
+     font-size: 50px;
+     color: #6f4436;
+     margin-bottom: 300px;
+}
+.button-container {
+     display: flex;
+     flex-direction: row;
+     gap: 15px;
+     align-items: center;
+     transition: transform 0.3s ease-in-out;
+}
+
+.back-btn {
+     padding: 10px 20px;
+     width: 100px;
+     background-color: #854442;
+     color: #ffffff;
+     border: none;
+     border-radius: 5px;
+     font-size: 20px;
+     cursor: pointer;
+     transition: background-color 0.2s ease;
+}
+.menu-toggle,
+.update-btn{
+     padding: 20px 30px;
+     width: 300px;
+     background-color: #854442;
+     color: #ffffff;
+     border: none;
+     border-radius: 5px;
+     font-size: 30px;
+     cursor: pointer;
+     transition: background-color 0.2s ease;
+}
+
+.menu-toggle:hover,
+.update-btn:hover,
+.back-btn:hover {
+     background-color: #6f4436;
+}
+
+.fade-menu {
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%) scale(0);
+     background-color: #ffffff;
+     width: 600px;
+     padding: 20px;
+     border-radius: 8px;
+     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+     opacity: 0;
+     transition: opacity 0.3s ease, transform 0.3s ease;
+     z-index: 10;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     gap: 15px;
+}
+
+.fade-menu.active {
+     transform: translate(-50%, -50%) scale(1);
+     opacity: 1;
+}
+
+.categoryId label,
+.ProductName label,
+.description label,
+.price label,
+.quantity label,
+.image label {
+     display: block;
+     font-size: 14px;
+     color: #6f4436;
+     margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="radio"] {
+     margin: 5px 0;
+     padding: 5px;
+     font-size: 14px;
+     border: 1px solid #be9b7b;
+     border-radius: 4px;
+     box-sizing: border-box;
+     background-color: #ffffff;
+     color: #3c2f2f;
+}
+
+.pSubmit input[type="submit"] {
+     margin-top: 15px;
+     padding: 15px 20px;
+     font-size: 20px;
+     color: #ffffff;
+     background-color: #6f4436;
+     border: none;
+     border-radius: 5px;
+     cursor: pointer;
+     transition: background-color 0.3s ease;
+}
+
+.pSubmit input[type="submit"]:hover {
+     background-color: #3c2f2f;
+}
