@@ -45,9 +45,7 @@ if (isset($_POST["btnLogout"]) ) {
 <body>
 
     <section class="profile">
-        <nav class="home">
-            <a href="index.php">Home</a>
-        </nav>
+
         <?php
         $user = $result->fetch_assoc();
         $id = $user["id"];
@@ -74,6 +72,9 @@ if (isset($_POST["btnLogout"]) ) {
         }
         ?>
     </section>
+    <div class="back">
+        <a class="back-btn" href="index.php">Home</a>
+    </div>
 </body>
 
 </html>

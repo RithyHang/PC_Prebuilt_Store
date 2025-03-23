@@ -183,14 +183,13 @@ if (isset($_POST["btnUpdate"])) {
             <input type="password" name="txtPassword" id="txtPassword" value="<?= $password ?>">
         </div>
 
-        <div class="back">
-            <a href="userAccount.php">Back</a>
-        </div>
+        
 
         <!-- Submit Button -->
         <div class="updateButton">
-            <input type="submit" name="btnUpdate" id="btnUpdate" value="Save">
+            <a class="back-btn" href="userAccount.php">Back</a>
             <input type="reset" name="btnReset" id="btnReset">
+            <input type="submit" name="btnUpdate" id="btnUpdate" value="Save">
         </div>
         
     </form>
