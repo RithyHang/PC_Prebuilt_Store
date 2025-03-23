@@ -18,54 +18,9 @@ if ($db->connect_errno > 0) {
     );
 }
 
-
-//prebuilt
-$sql = "SELECT * FROM products where category = 'Prebuilt'";
-$prebuilt = $db->query($sql);
-if ($db->errno > 0) {
-    die(
-        "Error number: " . $db->errno . "<br>" .
-        "Error message: " . $db->error
-    );
-}
-
-
-//prebuilt
-$sql = "SELECT * FROM products where category = 'Prebuilt'";
-$prebuilt = $db->query($sql);
-if ($db->errno > 0) {
-    die(
-        "Error number: " . $db->errno . "<br>" .
-        "Error message: " . $db->error
-    );
-}
-
-
-//CPU
-$sql = "SELECT * FROM products where category = 'CPU'";
-$cpu = $db->query($sql);
-if ($db->errno > 0) {
-    die(
-        "Error number: " . $db->errno . "<br>" .
-        "Error message: " . $db->error
-    );
-}
-
-
-//GPU
-$sql = "SELECT * FROM products where category = 'GPU'";
-$gpu = $db->query($sql);
-if ($db->errno > 0) {
-    die(
-        "Error number: " . $db->errno . "<br>" .
-        "Error message: " . $db->error
-    );
-}
-
-
-//RAM
-$sql = "SELECT * FROM products where category = 'RAM'";
-$ram = $db->query($sql);
+//Select every category
+$catSql = "SELECT DISTINCT category FROM products";
+$catResult = $db->query($catSql);
 if ($db->errno > 0) {
     die(
         "Error number: " . $db->errno . "<br>" .
@@ -127,17 +82,36 @@ if ($db->errno > 0) {
             </div>
             <div class="productbig">
                 <?php
-                while ($pc = $prebuilt->fetch_assoc()):
-                    echo "<div class='product2'>";
+
+
+
+
+
+                while ($category = $catResult->fetch_assoc()) {
+                    $cat = $category["category"];
+                    //prebuilt
+                    $sql = "SELECT * FROM products where category = '$cat'";
+                    $prebuilt = $db->query($sql);
+                    if ($db->errno > 0) {
+                        die(
+                            "Error number: " . $db->errno . "<br>" .
+                            "Error message: " . $db->error
+                        );
+                    }
+                    echo "<div class='Categories'>";
+                    while ($pc = $prebuilt->fetch_assoc()):
+                        echo "<div class='product2'>";
                         echo "<img src='../PRODUCTS/images/" . $pc["image"] . "' alt='Product Image'>";
                         echo "<div class='details'>";
-                            echo "<div class='col-01'>" . $pc["name"] . "</div>";
-                            echo "<div class='col-02'><span class='label'>Description:</span> " . $pc["description"] . "</div>";
-                            echo "<div class='col-03'><span class='label'>Price:</span> $" . $pc["price"] . "</div>";
-                            echo "<a href='#' class='add-to-cart-btn'>Purchase</a>";
+                        echo "<div class='col-01'>" . $pc["name"] . "</div>";
+                        echo "<div class='col-02'><span class='label'>Description:</span> " . $pc["description"] . "</div>";
+                        echo "<div class='col-03'><span class='label'>Price:</span> $" . $pc["price"] . "</div>";
+                        echo "<a href='#' class='add-to-cart-btn'>Purchase</a>";
                         echo "</div>";
+                        echo "</div>";
+                    endwhile;
                     echo "</div>";
-                endwhile;
+                }
                 ?>
             </div>
         </section>
@@ -155,7 +129,7 @@ if ($db->errno > 0) {
                     <p>Price: $499.99</p>
                     <a href="#">Add to Cart</a>
                 </div>
-                
+
             </div>
         </section>
 
