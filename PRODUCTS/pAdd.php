@@ -145,9 +145,9 @@ if (isset($_POST["submit"])) {
         }
 
         $stmt->bind_param("sssdis", $category, $name, $description, $price, $qty, $image);
-        move_uploaded_file($fileTmpName, $fileDestination);
 
         if ($stmt->execute()) {
+            move_uploaded_file($fileTmpName, $fileDestination);
             $success = "Product added successfully!";
         } else {
             $success = "Error adding product!";
