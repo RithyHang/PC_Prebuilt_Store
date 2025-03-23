@@ -126,18 +126,19 @@ if ($db->errno > 0) {
                 <h2>Pre-Built</h2>
             </div>
             <div class="productbig">
-                    <?php
-                    while ($pc = $prebuilt->fetch_assoc()):
-                        echo "<div class='product2'>";
-
-                            echo "<img src='../PRODUCTS/images/". $pc["image"] ."'>";
+                <?php
+                while ($pc = $prebuilt->fetch_assoc()):
+                    echo "<div class='product2'>";
+                        echo "<img src='../PRODUCTS/images/" . $pc["image"] . "' alt='Product Image'>";
+                        echo "<div class='details'>";
                             echo "<div class='col-01'>" . $pc["name"] . "</div>";
-                            echo "<div class='col-02'>" . $pc["description"] . "</div>";
-                            echo "<div class='col-03'> $" . $pc["price"] . "</div>";
+                            echo "<div class='col-02'><span class='label'>Description:</span> " . $pc["description"] . "</div>";
+                            echo "<div class='col-03'><span class='label'>Price:</span> $" . $pc["price"] . "</div>";
+                            echo "<a href='#' class='add-to-cart-btn'>Add to Cart</a>";
                         echo "</div>";
-                    endwhile;
-                    ?>
-
+                    echo "</div>";
+                endwhile;
+                ?>
             </div>
         </section>
 

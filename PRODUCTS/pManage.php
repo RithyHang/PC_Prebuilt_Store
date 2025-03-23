@@ -26,7 +26,7 @@
 
     <!-- Sliding and Fading Add Product Form -->
     <div class="fade-menu">
-        <button class="back-btn">Back</button>
+        <a href="../USERS/userAccount.php" class="back-btn">Back</a>
     </div>
 </body>
 
