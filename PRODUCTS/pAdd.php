@@ -18,11 +18,8 @@ $fileNameNew = "";
 $errors = [];
 $success = "";
 
-<<<<<<< HEAD
 // add products
-=======
 // Add product
->>>>>>> 10f96a8485a6313a3d616f321b04533b3b31a7fa
 if (isset($_POST["submit"])) {
     // Connect to the database
     $db = mysqli_connect("localhost", "root", '', "pc_store_db");
@@ -125,7 +122,6 @@ if (isset($_POST["submit"])) {
         $errors[] = $qtyError;
     }
 
-<<<<<<< HEAD
     //check image
     if (empty($image)) {
         $imageError = "image is reqired!";
@@ -138,9 +134,7 @@ if (isset($_POST["submit"])) {
 
 
 
-=======
     // If there are no errors, insert the data into the database
->>>>>>> 10f96a8485a6313a3d616f321b04533b3b31a7fa
     if (count($errors) === 0) {
         $sql = "INSERT INTO products (`category`, `name`, `description`, `price`, `qty`, `image`) 
                 VALUES(?, ?, ?, ?, ?, ?)";
@@ -177,19 +171,6 @@ if (isset($_POST["submit"])) {
 
 <body>
     <form action="" method="post" enctype="multipart/form-data">
-<<<<<<< HEAD
-        <div class="categoryId">
-            <label for="txtCateogryId">Category</label>
-            <input type="radio" name="rdCategory" id="rdCategory" checked value="CPU"> CPU &nbsp; &nbsp;
-            <input type="radio" name="rdCategory" id="rdCategory" value="GPU"> GPU &nbsp; &nbsp;
-            <input type="radio" name="rdCategory" id="rdCategory" value="Motherboard"> Motherboard &nbsp; &nbsp;
-            <input type="radio" name="rdCategory" id="rdCategory" value="RAM"> RAM &nbsp; &nbsp;
-            <input type="radio" name="rdCategory" id="rdCategory" value="Cooler"> Cooler &nbsp; &nbsp;
-            <input type="radio" name="rdCategory" id="rdCategory" value="Case"> PC Case &nbsp; &nbsp;
-            <input type="radio" name="rdCategory" id="rdCategory" value="Storage"> Storage &nbsp; &nbsp;
-            <input type="radio" name="rdCategory" id="rdCategory" value="PSU"> PSU &nbsp; &nbsp;
-            <input type="radio" name="rdCategory" id="rdCategory" value="Prebuilt"> Pre-built
-=======
         <h1>Add Product</h1>
         <div class="categoryId">
             <label>Category</label>
@@ -205,49 +186,23 @@ if (isset($_POST["submit"])) {
             </div>
             <!-- Hidden input to store the selected category -->
             <input type="hidden" name="selectedCategory" id="selectedCategory" value="CPU">
->>>>>>> 10f96a8485a6313a3d616f321b04533b3b31a7fa
         </div>
 
-        <div class="ProductName">
-            <label for="txtProductName">Product Name</label>
-            <input type="text" name="txtProductName" id="txtProductName">
-        </div>
+        
 
-<<<<<<< HEAD
         <div class="ProductName">
             <label for="txtProductName">Product Name</label>
             <input type="text" name="txtProductName" id="txtProductName">
             <span class="error"><?php echo $nameError; ?></span>
-=======
-        <div class="description">
-            <label for="txtDescription">Description</label>
-            <input type="text" name="txtDescription" id="txtDescription">
->>>>>>> 10f96a8485a6313a3d616f321b04533b3b31a7fa
         </div>
 
-        <div class="price">
-            <label for="txtPrice">Price</label>
-            <input type="text" name="txtPrice" id="txtPrice">
-        </div>
 
-<<<<<<< HEAD
         <div class="description">
             <label for="txtDescription">Description</label>
             <input type="text" name="txtDescription" id="txtDescription">
             <span class="error"><?php echo $descriptionError; ?></span>
-=======
-        <div class="quantity">
-            <label for="txtQuantity">Quantity</label>
-            <input type="text" name="txtQuantity" id="txtQuantity">
->>>>>>> 10f96a8485a6313a3d616f321b04533b3b31a7fa
         </div>
 
-        <div class="image">
-            <label for="fImage">Image</label>
-            <input type="file" name="fImage" id="fImage">
-        </div>
-
-<<<<<<< HEAD
         <div class="price">
             <label for="txtPrice">Price</label>
             <input type="text" name="txtPrice" id="txtPrice">
@@ -268,16 +223,6 @@ if (isset($_POST["submit"])) {
             <span class="error"><?php echo $imageError; ?></span>
         </div>
 
-
-        <div class="pSubmit">
-            <input type="submit" name="submit" id="submit" value="ADD">
-        </div>
-        <!-- Success Message -->
-        <?= $success == "" ? null : "<div class='success'>$success</div>"; ?>
-    </form>
-
-    <a href="pManage.php">back</a>
-=======
         <div class="button-row">
             <a href="pManage.php" class="back-btn">Back</a>
             <input type="submit" name="submit" id="submit" value="ADD" class="submit-btn">
@@ -285,7 +230,6 @@ if (isset($_POST["submit"])) {
     </form>
 
     <script src="script.js"></script>
->>>>>>> 10f96a8485a6313a3d616f321b04533b3b31a7fa
 </body>
 
 </html>
