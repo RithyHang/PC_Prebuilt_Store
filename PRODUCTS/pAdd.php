@@ -37,6 +37,7 @@ if (isset($_POST["submit"])) {
     $name = $_POST["txtProductName"];
     $description = $_POST["txtDescription"];
     $price = $_POST["txtPrice"];
+    $qty = $_POST["txtQuantity"];
 
     //image
     $file = $_FILES['fImage'];
@@ -94,14 +95,9 @@ if (isset($_POST["submit"])) {
     if (empty($description)) {
         $descriptionError = "Description is required!";
         $errors[] = $descriptionError;
-    } else {
-        if (strlen($description) < 10) {
+    } elseif (strlen($description) < 10) {
             $descriptionError = "Description must be at least 10 characters!";
             $errors[] = $descriptionError;
-        } elseif (!preg_match("/^[a-zA-Z0-9 \.]+$/", $description)) {
-            $descriptionError = "Description is invalid!";
-            $errors[] = $descriptionError;
-        }
     }
 
 
