@@ -17,7 +17,7 @@ $imageError = "";
 $fileNameNew = "";
 
 $errors = [];
-
+$success = "";
 
 // add products
 if (isset($_POST["submit"])) {
@@ -96,8 +96,8 @@ if (isset($_POST["submit"])) {
         $descriptionError = "Description is required!";
         $errors[] = $descriptionError;
     } elseif (strlen($description) < 10) {
-            $descriptionError = "Description must be at least 10 characters!";
-            $errors[] = $descriptionError;
+        $descriptionError = "Description must be at least 10 characters!";
+        $errors[] = $descriptionError;
     }
 
 
@@ -124,7 +124,7 @@ if (isset($_POST["submit"])) {
     if (empty($image)) {
         $imageError = "image is reqired!";
         $errors[] = $imageError;
-    } elseif(!in_array($fileActualExt, $allowed)) {
+    } elseif (!in_array($fileActualExt, $allowed)) {
         $imageError = "image file is not supported!";
         $errors[] = $imageError;
     }
@@ -156,67 +156,73 @@ if (isset($_POST["submit"])) {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../CSS section/pManage.css">
     <title>Add Products</title>
 </head>
+
 <body>
-<form action="" method="post" enctype="multipart/form-data">
-            <div class="categoryId">
-                <label for="txtCateogryId">Category</label>
-                <input type="radio" name="rdCategory" id="rdCategory" checked value="CPU"> CPU &nbsp; &nbsp;
-                <input type="radio" name="rdCategory" id="rdCategory" value="GPU"> GPU &nbsp; &nbsp;
-                <input type="radio" name="rdCategory" id="rdCategory" value="Motherboard"> Motherboard &nbsp; &nbsp;
-                <input type="radio" name="rdCategory" id="rdCategory" value="RAM"> RAM &nbsp; &nbsp;
-                <input type="radio" name="rdCategory" id="rdCategory" value="Cooler"> Cooler &nbsp; &nbsp;
-                <input type="radio" name="rdCategory" id="rdCategory" value="Case"> PC Case &nbsp; &nbsp;
-                <input type="radio" name="rdCategory" id="rdCategory" value="Storage"> Storage &nbsp; &nbsp;
-                <input type="radio" name="rdCategory" id="rdCategory" value="PSU"> PSU &nbsp; &nbsp;
-            </div>
+    <form action="" method="post" enctype="multipart/form-data">
+        <div class="categoryId">
+            <label for="txtCateogryId">Category</label>
+            <input type="radio" name="rdCategory" id="rdCategory" checked value="CPU"> CPU &nbsp; &nbsp;
+            <input type="radio" name="rdCategory" id="rdCategory" value="GPU"> GPU &nbsp; &nbsp;
+            <input type="radio" name="rdCategory" id="rdCategory" value="Motherboard"> Motherboard &nbsp; &nbsp;
+            <input type="radio" name="rdCategory" id="rdCategory" value="RAM"> RAM &nbsp; &nbsp;
+            <input type="radio" name="rdCategory" id="rdCategory" value="Cooler"> Cooler &nbsp; &nbsp;
+            <input type="radio" name="rdCategory" id="rdCategory" value="Case"> PC Case &nbsp; &nbsp;
+            <input type="radio" name="rdCategory" id="rdCategory" value="Storage"> Storage &nbsp; &nbsp;
+            <input type="radio" name="rdCategory" id="rdCategory" value="PSU"> PSU &nbsp; &nbsp;
+            <input type="radio" name="rdCategory" id="rdCategory" value="Prebuilt"> Pre-built
+        </div>
 
 
-            <div class="ProductName">
-                <label for="txtProductName">Product Name</label>
-                <input type="text" name="txtProductName" id="txtProductName">
-                <span class="error"><?php echo $nameError; ?></span>
-            </div>
+        <div class="ProductName">
+            <label for="txtProductName">Product Name</label>
+            <input type="text" name="txtProductName" id="txtProductName">
+            <span class="error"><?php echo $nameError; ?></span>
+        </div>
 
 
-            <div class="description">
-                <label for="txtDescription">Description</label>
-                <input type="text" name="txtDescription" id="txtDescription">
-                <span class="error"><?php echo $descriptionError; ?></span>
-            </div>
+        <div class="description">
+            <label for="txtDescription">Description</label>
+            <input type="text" name="txtDescription" id="txtDescription">
+            <span class="error"><?php echo $descriptionError; ?></span>
+        </div>
 
 
-            <div class="price">
-                <label for="txtPrice">Price</label>
-                <input type="text" name="txtPrice" id="txtPrice">
-                <span class="error"><?php echo $priceError; ?></span>
-            </div>
+        <div class="price">
+            <label for="txtPrice">Price</label>
+            <input type="text" name="txtPrice" id="txtPrice">
+            <span class="error"><?php echo $priceError; ?></span>
+        </div>
 
 
-            <div class="quantity">
-                <label for="txtQuantity">Quantity</label>
-                <input type="text" name="txtQuantity" id="txtQuantity">
-                <span class="error"><?php echo $qtyError; ?></span>
-            </div>
+        <div class="quantity">
+            <label for="txtQuantity">Quantity</label>
+            <input type="text" name="txtQuantity" id="txtQuantity">
+            <span class="error"><?php echo $qtyError; ?></span>
+        </div>
 
 
-            <div class="image">
-                <label for="fImage">Image</label>
-                <input type="file" name="fImage" id="fImage">
-                <span class="error"><?php echo $imageError; ?></span>
-            </div>
+        <div class="image">
+            <label for="fImage">Image</label>
+            <input type="file" name="fImage" id="fImage">
+            <span class="error"><?php echo $imageError; ?></span>
+        </div>
 
 
-            <div class="pSubmit">
-                <input type="submit" name="submit" id="submit" value="ADD">
-            </div>
-        </form>
+        <div class="pSubmit">
+            <input type="submit" name="submit" id="submit" value="ADD">
+        </div>
+        <!-- Success Message -->
+        <?= $success == "" ? null : "<div class='success'>$success</div>"; ?>
+    </form>
 
-        <a href="pManage.php">back</a>
+    <a href="pManage.php">back</a>
 </body>
+
 </html>

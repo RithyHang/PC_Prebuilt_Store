@@ -8,7 +8,73 @@ if (!empty($_SESSION["username"])) {
 }
 
 
+// connect to databas
+$db = mysqli_connect("localhost", "root", '', "pc_store_db");
+
+if ($db->connect_errno > 0) {
+    die(
+        "Error number: " . $db->connect_errno . "<br>" .
+        "Error message: " . $db->connect_error
+    );
+}
+
+
+//prebuilt
+$sql = "SELECT * FROM products where category = 'Prebuilt'";
+$prebuilt = $db->query($sql);
+if ($db->errno > 0) {
+    die(
+        "Error number: " . $db->errno . "<br>" .
+        "Error message: " . $db->error
+    );
+}
+
+
+//prebuilt
+$sql = "SELECT * FROM products where category = 'Prebuilt'";
+$prebuilt = $db->query($sql);
+if ($db->errno > 0) {
+    die(
+        "Error number: " . $db->errno . "<br>" .
+        "Error message: " . $db->error
+    );
+}
+
+
+//CPU
+$sql = "SELECT * FROM products where category = 'CPU'";
+$cpu = $db->query($sql);
+if ($db->errno > 0) {
+    die(
+        "Error number: " . $db->errno . "<br>" .
+        "Error message: " . $db->error
+    );
+}
+
+
+//GPU
+$sql = "SELECT * FROM products where category = 'GPU'";
+$gpu = $db->query($sql);
+if ($db->errno > 0) {
+    die(
+        "Error number: " . $db->errno . "<br>" .
+        "Error message: " . $db->error
+    );
+}
+
+
+//RAM
+$sql = "SELECT * FROM products where category = 'RAM'";
+$ram = $db->query($sql);
+if ($db->errno > 0) {
+    die(
+        "Error number: " . $db->errno . "<br>" .
+        "Error message: " . $db->error
+    );
+}
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -31,7 +97,8 @@ if (!empty($_SESSION["username"])) {
     <header>
         <nav>
             <ul>
-                <li><a href="Index.php" class="logo"><img src="../CSS Section/Material/img/OneStore.png" alt=""></a></li>
+                <li><a href="Index.php" class="logo"><img src="../CSS Section/Material/img/OneStore.png" alt=""></a>
+                </li>
                 <li><a href="Index.php" class="active">Home</a></li>
                 <li><a href="#footer">Contact</a></li>
                 <li><a href="#footer">Follow Us</a></li>
@@ -59,19 +126,17 @@ if (!empty($_SESSION["username"])) {
                 <h2>Pre-Built</h2>
             </div>
             <div class="productbig">
-                <div class="product2">
-                    <img src="../CSS Section/Material/img/Ryzen.png" alt="Pre-Built PC Image">
-                    <div class="details">
-                        <h1>Pre-Built Gaming PC 1</h1>
-                        <p><strong>CPU:</strong> Intel Core i9-10900K</p>
-                        <p><strong>GPU:</strong> NVIDIA RTX 3080</p>
-                        <p><strong>RAM:</strong> 16GB DDR4</p>
-                        <p><strong>Storage:</strong> 1TB SSD</p>
-                        <p><strong>OS:</strong> Windows 11</p>
-                        <p><strong>Price:</strong> $1,499.99</p>
-                        <a href="#">Add to Cart</a>
-                    </div>
-                </div>
+                    <?php
+                    while ($pc = $prebuilt->fetch_assoc()):
+                        echo "<div class='product2'>";
+
+                            echo "<img src='../PRODUCTS/images/". $pc["image"] ."'>";
+                            echo "<div class='col-01'>" . $pc["name"] . "</div>";
+                            echo "<div class='col-02'>" . $pc["description"] . "</div>";
+                            echo "<div class='col-03'> $" . $pc["price"] . "</div>";
+                        echo "</div>";
+                    endwhile;
+                    ?>
 
             </div>
         </section>
