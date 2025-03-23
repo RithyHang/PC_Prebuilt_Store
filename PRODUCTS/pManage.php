@@ -14,11 +14,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Product</title>
     <link rel="stylesheet" href="../CSS section/pManage.css">
-    <script defer src="../Java Section/pManage.js"></script>
 </head>
 
 <body>
-    <h1>Manage Product</h1>
+    <h1>Product Management</h1>
     <!-- Buttons for Add and Update -->
     <div class="button-container">
         <a href="pAdd.php">Add Poduct</a>
