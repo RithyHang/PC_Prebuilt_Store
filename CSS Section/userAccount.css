@@ -6,22 +6,6 @@ body {
      color: #3c2f2f;
 }
 
-nav.home {
-     position: absolute;
-     top: 10px;
-     left: 10px;
-}
-
-nav.home a {
-     background-color: #854442;
-     color: #ffffff;
-     text-decoration: none;
-     font-weight: bold;
-     font-size: 18px;
-     padding: 5px 10px;
-     border-radius: 5px;
-}
-
 nav.home a:hover {
      text-decoration: underline;
 }
@@ -76,6 +60,7 @@ section.account-actions .action-link {
      display: inline-block;
      margin: 10px;
      padding: 10px 20px;
+     width: 200px;
      background-color: #be9b7b;
      color: #ffffff;
      text-decoration: none;
@@ -88,3 +73,23 @@ section.account-actions .action-link:hover {
      background-color: #6f4436;
 }
 
+.back{
+     display: flex;
+     justify-content: center;
+}
+.back-btn {
+     text-align: center;
+     text-decoration: none;
+     background-color: #ffffff;
+     color: #6f4436;
+     padding: 10px 0px;
+     width: 100px;
+     border: 2px solid #6f4436;
+     border-radius: 5px;
+     font-weight: bold;
+     transition: all 0.2s ease-in-out;
+}
+.back-btn:hover {
+     background-color: #6f4436; 
+     color: #fff; 
+}

@@ -4,8 +4,6 @@
 
 }
 
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,16 +16,14 @@
 
 <body>
     <h1>Product Management</h1>
+    
     <!-- Buttons for Add and Update -->
     <div class="button-container">
-        <a href="pAdd.php">Add Poduct</a>
-        <a href="pUpdate.php">Update Poduct</a>
+        <a href="pAdd.php" class="action-btn">Add Product</a>
+        <a href="pUpdate.php" class="action-btn">Update Product</a>
     </div>
 
-    <!-- Sliding and Fading Add Product Form -->
-    <div class="fade-menu">
-        <a href="../USERS/userAccount.php" class="back-btn">Back</a>
-    </div>
+    <a href="../USERS/userAccount.php" class="back-btn">Back</a>
 </body>
 
 </html>

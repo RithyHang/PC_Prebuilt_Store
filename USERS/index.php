@@ -134,7 +134,7 @@ if ($db->errno > 0) {
                             echo "<div class='col-01'>" . $pc["name"] . "</div>";
                             echo "<div class='col-02'><span class='label'>Description:</span> " . $pc["description"] . "</div>";
                             echo "<div class='col-03'><span class='label'>Price:</span> $" . $pc["price"] . "</div>";
-                            echo "<a href='#' class='add-to-cart-btn'>Add to Cart</a>";
+                            echo "<a href='#' class='add-to-cart-btn'>Purchase</a>";
                         echo "</div>";
                     echo "</div>";
                 endwhile;
@@ -155,7 +155,7 @@ if ($db->errno > 0) {
                     <p>Price: $499.99</p>
                     <a href="#">Add to Cart</a>
                 </div>
-
+                
             </div>
         </section>
 

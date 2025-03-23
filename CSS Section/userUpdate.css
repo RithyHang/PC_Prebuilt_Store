@@ -44,9 +44,33 @@ input[type="password"] {
 
 div.updateButton {
      display: flex;
-     justify-content: flex-end;
-     gap: 10px;
-}
+     justify-content: space-between;
+     align-items: center; 
+     gap: 10px; 
+ }
+ 
+ div.updateButton .back-btn {
+     margin-right: auto; 
+ }
+ 
+ div.updateButton input {
+     padding: 10px 0px;
+     width: 100px;
+     font-size: 18px;
+     background-color: #dfccaf;
+     color: #000000;
+     border: none;
+     border-radius: 5px;
+     border: 2px solid #6f4436;
+     cursor: pointer;
+     font-weight: bold;
+     transition: background-color 0.3s ease;
+ }
+ 
+ div.updateButton input:hover {
+     background-color: #6f4436;
+     color: #ffffff;
+ }
 
 input[type="submit"],
 input[type="reset"] {
@@ -66,17 +90,22 @@ input[type="reset"]:hover {
 }
 
 
-div.back {
-     display: flex;
-     justify-content: flex-start;
-     margin-top: 10px;
+.back-btn{
+     text-align: center;
+     text-decoration: none;
+     background-color: #ffffff;
+     color: #6f4436;
+     padding: 10px 20px;
+     width: 100px;
+     border: 2px solid #6f4436;
+     border-radius: 5px;
+     font-weight: bold;
+     transition: all 0.2s ease-in-out;
 }
 
-div.back a {
-     text-decoration: none;
-     font-size: 16px;
-     color: #854442;
-     transition: color 0.3s ease;
+.back-btn:hover {
+     background-color: #6f4436; 
+     color: #fff; 
 }
 
 

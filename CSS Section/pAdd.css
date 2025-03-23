@@ -74,32 +74,42 @@ input[type="text"], input[type="file"] {
      align-items: center;
      margin-top: 15px;
 }
-
+.updateButton:first-child {
+     margin-right: auto; 
+}
 .back-btn {
-     padding: 10px 20px;
-     background-color: #854442;
-     color: #ffffff;
+     text-align: center;
      text-decoration: none;
+     background-color: #ffffff;
+     color: #6f4436;
+     padding: 10px 0px;
+     width: 100px;
+     border: 2px solid #6f4436;
      border-radius: 5px;
-     transition: background-color 0.3s ease;
+     font-weight: bold;
+     transition: all 0.2s ease-in-out;
 }
-
 .back-btn:hover {
-     background-color: #6f4436;
+     background-color: #6f4436; 
+     color: #fff; 
 }
-
 .submit-btn {
-     padding: 10px 30px;
-     background-color: #854442;
-     color: #ffffff;
+     padding: 10px 0px;
+     width: 100px;
+     font-size: 18px;
+     background-color: #dfccaf;
+     color: #000000;
      border: none;
      border-radius: 5px;
+     border: 2px solid #6f4436;
      cursor: pointer;
+     font-weight: bold;
      transition: background-color 0.3s ease;
 }
 
 .submit-btn:hover {
      background-color: #6f4436;
+     color: #ffffff;
 }
 
 
