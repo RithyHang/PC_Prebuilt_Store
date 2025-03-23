@@ -39,6 +39,9 @@ if (isset($_POST["submit"])) {
         $sql = "SELECT * from users where username = '$username' and password = '$password'";
         $result = $db->query($sql);
 
+        $user = $result->fetch_assoc();
+        $_SESSION["id"] =  $user["id"];
+
         if ($db->connect_errno > 0) {
             die(
                 "Error number : " . $db->connect_errno . "<br>" .

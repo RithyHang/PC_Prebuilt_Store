@@ -1,8 +1,7 @@
 <?php
-$id;
 session_start();
-$username = $_SESSION["username"];
-$password = $_SESSION["password"];
+$id = $_SESSION["id"];
+echo $id;
 
 $db = mysqli_connect("localhost", "root", '', "pc_store_db");
 if ($db->connect_errno > 0) {
@@ -14,8 +13,7 @@ if ($db->connect_errno > 0) {
 
 $sql = "SELECT *
             from users 
-            WHERE username = '$username'
-            AND password = '$password'";
+            WHERE id = '$id'";
 $result = $db->query($sql);
 if ($db->connect_errno > 0) {
     die(

@@ -234,7 +234,7 @@ if (isset($_POST["submit"])) {
         </div>
         <div class="button-row">
             <a href="pManage.php" class="back-btn">Back</a>
-            <input type="submit" name="submit" id="submit" value="Add" class="submit-btn">
+            <input type="submit" name="submit" id="submit" value="Update" class="submit-btn">
         </div>
     </form>
 </body>
