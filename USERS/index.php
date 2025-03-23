@@ -7,9 +7,8 @@ if (!empty($_SESSION["username"])) {
     $linkPath = "userLogin.php";
 }
 
-
-// connect to databas
 $db = mysqli_connect("localhost", "root", '', "pc_store_db");
+
 
 if ($db->connect_errno > 0) {
     die(
@@ -18,18 +17,10 @@ if ($db->connect_errno > 0) {
     );
 }
 
-//Select every category
-$catSql = "SELECT DISTINCT category FROM products";
-$catResult = $db->query($catSql);
-if ($db->errno > 0) {
-    die(
-        "Error number: " . $db->errno . "<br>" .
-        "Error message: " . $db->error
-    );
-}
+$desiredCategories = ['CPU', 'GPU', 'Motherboard', 'RAM', 'Cooler', 'Case', 'Storage', 'PSU'];
+
+
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -44,7 +35,6 @@ if ($db->errno > 0) {
     <script src="../Java Section/index.js"></script>
 
     <script src="https://kit.fontawesome.com/6d248d535d.js" crossorigin="anonymous"></script>
-
 </head>
 
 <body>
@@ -52,8 +42,7 @@ if ($db->errno > 0) {
     <header>
         <nav>
             <ul>
-                <li><a href="Index.php" class="logo"><img src="../CSS Section/Material/img/OneStore.png" alt=""></a>
-                </li>
+                <li><a href="Index.php" class="logo"><img src="../CSS Section/Material/img/OneStore.png" alt=""></a></li>
                 <li><a href="Index.php" class="active">Home</a></li>
                 <li><a href="#footer">Contact</a></li>
                 <li><a href="#footer">Follow Us</a></li>
@@ -66,122 +55,53 @@ if ($db->errno > 0) {
     <!-- -------------------------------------------------------------------------- -->
     <div class="category">
         <ul>
-            <li><a href="#prebuilt">Pre-Built</a></li>
-            <li><a href="#cpu">CPU</a></li>
-            <li><a href="#gpu">GPU</a></li>
-            <li><a href="#motherboard">Motherboard</a></li>
-            <li><a href="#accessory">Accessory</a></li>
+            <?php
+            foreach ($desiredCategories as $category) {
+                $checkSql = "SELECT COUNT(*) AS product_count FROM products WHERE category = '$category'";
+                $checkResult = $db->query($checkSql);
+                $row = $checkResult->fetch_assoc();
+                if ($row['product_count'] > 0) {
+                    echo "<li><a href='#" . strtolower(str_replace(' ', '-', $category)) . "'>$category</a></li>";
+                }
+            }
+            ?>
         </ul>
     </div>
     <!-- -------------------------------------------------------------------------- -->
     <div class="container">
-        <!-- PreBuilt Section -->
-        <section id="prebuilt" class="product-section">
-            <div class="section-header">
-                <h2>Pre-Built</h2>
-            </div>
-            <div class="productbig">
-                <?php
+        <?php
+        foreach ($desiredCategories as $category) {
+            // Fetch products for the current category
+            $sql = "SELECT * FROM products WHERE category = '$category'";
+            $result = $db->query($sql);
 
+            if ($result->num_rows > 0) {
+                // Display the section only if products exist in the category
+                echo "<section id='" . strtolower(str_replace(' ', '-', $category)) . "' class='product-section'>";
+                echo "<div class='section-header'>";
+                echo "<h2>$category</h2>";
+                echo "</div>";
+                echo "<div class='productbig'>";
 
-
-
-
-                while ($category = $catResult->fetch_assoc()) {
-                    $cat = $category["category"];
-                    //prebuilt
-                    $sql = "SELECT * FROM products where category = '$cat'";
-                    $prebuilt = $db->query($sql);
-                    if ($db->errno > 0) {
-                        die(
-                            "Error number: " . $db->errno . "<br>" .
-                            "Error message: " . $db->error
-                        );
-                    }
-                    echo "<div class='Categories'>";
-                    while ($pc = $prebuilt->fetch_assoc()):
-                        echo "<div class='product2'>";
-                        echo "<img src='../PRODUCTS/images/" . $pc["image"] . "' alt='Product Image'>";
-                        echo "<div class='details'>";
-                        echo "<div class='col-01'>" . $pc["name"] . "</div>";
-                        echo "<div class='col-02'><span class='label'>Description:</span> " . $pc["description"] . "</div>";
-                        echo "<div class='col-03'><span class='label'>Price:</span> $" . $pc["price"] . "</div>";
-                        echo "<a href='#' class='add-to-cart-btn'>Purchase</a>";
-                        echo "</div>";
-                        echo "</div>";
-                    endwhile;
+                while ($product = $result->fetch_assoc()) {
+                    // Display each product
+                    echo "<div class='product2'>";
+                    echo "<img src='../PRODUCTS/images/" . $product["image"] . "' alt='Product Image'>";
+                    echo "<div class='details'>";
+                    echo "<div class='col-01'>" . $product["name"] . "</div>";
+                    echo "<div class='col-02'><span class='label'>Description:</span> " . $product["description"] . "</div>";
+                    echo "<div class='col-03'><span class='label'>Price:</span> $" . $product["price"] . "</div>";
+                    echo "<a href='#' class='add-to-cart-btn'>Purchase</a>";
+                    echo "</div>";
                     echo "</div>";
                 }
-                ?>
-            </div>
-        </section>
 
-
-        <!-- CPU Section -->
-        <section id="cpu" class="product-section">
-            <div class="section-header">
-                <h2>CPU</h2>
-            </div>
-            <div class="product">
-                <div class="product1">
-                    <img src="../CSS Section/Material/img/Ryzen.png" alt="">
-                    <h1>Intel Core i9-10900K</h1>
-                    <p>Price: $499.99</p>
-                    <a href="#">Add to Cart</a>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- GPU Section -->
-        <section id="gpu" class="product-section">
-            <div class="section-header">
-                <h2>GPU</h2>
-            </div>
-            <div class="product">
-                <div class="product1">
-                    <img src="../CSS Section/Material/img/Ryzen.png" alt="">
-                    <h1>Intel Core i9-10900K</h1>
-                    <p>Price: $499.99</p>
-                    <a href="#">Add to Cart</a>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Motherboard Section -->
-        <section id="motherboard" class="product-section">
-            <div class="section-header">
-                <h2>Motherboard</h2>
-            </div>
-            <div class="product">
-                <div class="product1">
-                    <img src="../CSS Section/Material/img/Ryzen.png" alt="">
-                    <h1>Intel Core i9-10900K</h1>
-                    <p>Price: $499.99</p>
-                    <a href="#">Add to Cart</a>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Accessory Section -->
-        <section id="accessory" class="product-section">
-            <div class="section-header">
-                <h2>Accessory</h2>
-            </div>
-            <div class="product">
-                <div class="product1">
-                    <img src="../CSS Section/Material/img/Ryzen.png" alt="">
-                    <h1>Intel Core i9-10900K</h1>
-                    <p>Price: $499.99</p>
-                    <a href="#">Add to Cart</a>
-                </div>
-
-            </div>
-        </section>
+                echo "</div>";
+                echo "</section>";
+            }
+        }
+        ?>
     </div>
-
     <!-- -------------------------------------------------------------------------- -->
     <footer>
         <div class="footer_main" id="footer">
@@ -191,7 +111,6 @@ if ($db->errno > 0) {
                     Federation Blvd (110), Phnom Penh</a>
                 <a href="#"><i class="fa-solid fa-phone"></i> 023 880 612</a>
                 <a href="#"><i class="fa-solid fa-envelope"></i> totallynotarealemail@gmail.com</a>
-
             </div>
             <div class="tag">
                 <h1>Information</h1>
@@ -241,7 +160,6 @@ if ($db->errno > 0) {
                 </div>
                 <p>Check our posts</p>
             </div>
-
         </div>
     </footer>
 </body>
