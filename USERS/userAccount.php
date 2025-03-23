@@ -1,7 +1,7 @@
 <?php
 session_start();
 $id = $_SESSION["id"];
-echo $id;
+echo $_SESSION["id"];
 
 $db = mysqli_connect("localhost", "root", '', "pc_store_db");
 if ($db->connect_errno > 0) {

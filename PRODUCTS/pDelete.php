@@ -12,8 +12,6 @@ if (isset($_GET["id"])) {
     $stmt = $db->prepare($deleteSQL);
     $stmt->bind_param("i", $id);
     $stmt->execute();
-    session_start();
-    session_destroy();
 
     header("Location: ../products/pManage.php");
 
