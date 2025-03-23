@@ -44,43 +44,42 @@ if ($db->errno > 0) {
     <a href="../USERS/userAccount.php" class="back-btn">Back</a>
 
     <div class="container">
-        <!-- PreBuilt Section -->
-        <section id="prebuilt" class="product-section">
-            <div class="section-header">
-                <h2>Pre-Built</h2>
-            </div>
-            <div class="productbig">
-                <?php
-                while ($category = $catResult->fetch_assoc()) {
-                    $cat = $category["category"];
-                    //prebuilt
-                    $sql = "SELECT * FROM products where category = '$cat'";
-                    $prebuilt = $db->query($sql);
-                    if ($db->errno > 0) {
-                        die(
-                            "Error number: " . $db->errno . "<br>" .
-                            "Error message: " . $db->error
-                        );
-                    }
-                    echo "<div class='Categories'>";
-                    while ($pc = $prebuilt->fetch_assoc()):
-                        $id = $pc["id"];
-                        echo "<div class='product2'>";
-                        echo "<img src='../PRODUCTS/images/" . $pc["image"] . "' alt='Product Image'>";
-                        echo "<div class='details'>";
-                        echo "<div class='col-01'>" . $pc["name"] . "</div>";
-                        echo "<div class='col-02'><span class='label'>Description:</span> " . $pc["description"] . "</div>";
-                        echo "<div class='col-03'><span class='label'>Price:</span> $" . $pc["price"] . "</div>";
-                        echo "<a class='action-link' href='../products/pUpdate.php?id=$id'>Edit</a>";
-                        echo "<a class='action-link' href='../products/pDelete.php?id=$id'>Delete</a>";
-                        echo "</div>";
-                        echo "</div>";
-                    endwhile;
+        <?php
+        // Define the desired category order
+        $desiredCategories = ['CPU', 'GPU', 'Motherboard', 'RAM', 'Cooler', 'PC Case', 'Storage', 'PSU'];
+
+        foreach ($desiredCategories as $category) {
+            // Fetch products for the current category
+            $sql = "SELECT * FROM products WHERE category = '$category'";
+            $result = $db->query($sql);
+
+            if ($result->num_rows > 0) {
+                // Display the section only if products exist in the category
+                echo "<section id='" . strtolower(str_replace(' ', '-', $category)) . "' class='product-section'>";
+                echo "<div class='section-header'>";
+                echo "<h2>$category</h2>";
+                echo "</div>";
+                echo "<div class='productbig'>";
+
+                while ($product = $result->fetch_assoc()) {
+                    $id = $product["id"]; // Capture product ID for edit/delete actions
+                    echo "<div class='product2'>";
+                    echo "<img src='../PRODUCTS/images/" . $product["image"] . "' alt='Product Image'>";
+                    echo "<div class='details'>";
+                    echo "<div class='col-01'>" . $product["name"] . "</div>";
+                    echo "<div class='col-02'><span class='label'>Description:</span> " . $product["description"] . "</div>";
+                    echo "<div class='col-03'><span class='label'>Price:</span> $" . $product["price"] . "</div>";
+                    echo "<a class='action-link' href='pUpdate.php?id=$id'>Edit</a>";
+                    echo "<a class='action-link' href='pDelete.php?id=$id'>Delete</a>";
+                    echo "</div>";
                     echo "</div>";
                 }
-                ?>
-            </div>
-        </section>
+
+                echo "</div>";
+                echo "</section>";
+            }
+        }
+        ?>
     </div>
 </body>
 
